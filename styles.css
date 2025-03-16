@@ -1,0 +1,160 @@
+:root {
+  --primary-color: rgba(30, 64, 35, 0.7);
+  --primary2-color: rgba(101, 140, 90, 0.7);
+  --secondary-color: rgba(217, 193, 150, 0.4);
+  --secondary2-color: rgba(217, 193, 150, 0.9);
+  --contrast-color: rgb(166, 104, 81);
+  --primary-font: "Rubik", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+html {
+  font-size: 10px !important; /* Define la base de la unidad rem (1rem = 10px) */
+}
+
+body {
+  font-family: var(--primary-font) !important;
+  background-image: url("./assets/dogs_and_cats/Family.jpg");
+  background-size: cover; /* Asegura que cubra toda la pantalla sin deformarse */
+  background-position: center center; /* Centra la imagen */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
+  width: 100vw; /* Ocupa todo el ancho */
+  height: 100vh; /* Ocupa todo el alto de la pantalla */
+  overflow-x: hidden; /* Evita que aparezca scroll horizontal */
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  position: absolute; /* Fija el navbar sobre el fondo */
+  top: 1rem; /* Espaciado desde arriba */
+  left: 50%;
+  transform: translateX(-50%); /* Centra el navbar */
+  width: 90%;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(30, 64, 35, 0.2)
+  );
+  border-radius: 2rem;
+  padding: 1.5rem;
+  display: flex;
+  gap: 4rem;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+nav button {
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+}
+
+nav button:hover {
+  background-color: var(--secondary2-color);
+}
+
+nav button a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 1rem;
+}
+
+.logo-container img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.logo-container span {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Estilos del menú hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilos del menú desplegable */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--contrast-color);
+}
+
+/* Responsivo: Mostrar el menú hamburguesa */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+}
