@@ -1,0 +1,187 @@
+/* Estilos del navbar */
+nav {
+  position: absolute; /* Fija el navbar sobre el fondo */
+  top: 1rem; /* Espaciado desde arriba */
+  left: 50%;
+  transform: translateX(-50%); /* Centra el navbar */
+  width: 87%;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  /* Efecto de transparencia */
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(30, 64, 35, 0.2)
+  );
+  /* disposicion de elementos */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav button {
+  /* Botón de adoptar */
+  border: none;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+}
+
+nav button:hover {
+  background-color: var(--secondary2-color);
+}
+
+nav button a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-left: 1rem;
+}
+
+.logo-container img {
+  width: 5.2rem;
+  height: 5.2rem;
+}
+
+.logo-container span {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 3rem;
+  margin-right: 1rem;
+}
+
+.bar {
+  /* Barras del menú hamburguesa */
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle {
+  /* Estilos del menú hamburguesa */
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.menu {
+  /* Estilos del menú desplegable */
+  list-style: none;
+  display: none;
+  gap: 1rem;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--contrast-color);
+}
+
+/* Responsivo para pantallas menores a 768px */
+@media (max-width: 768px) {
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 1rem;
+  }
+
+  .logo-container img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .logo-container span {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    right: 0%;
+    width: 60%;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    backdrop-filter: blur(40px);
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(30, 64, 35, 0.2)
+    );
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: end;
+    text-transform: uppercase;
+  }
+}
+
+/* Estilos del menú de escritorio */
+.menu-desktop {
+  list-style: none;
+  margin: 0 1rem 0 0;
+}
+
+.menu-desktop li {
+  display: inline-block;
+  font-size: 2rem;
+}
+
+.menu-desktop a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Responsivo para pantallas menores a 768px */
+@media (min-width: 992px) {
+  .menu-desktop li {
+    font-size: 2.5rem;
+  }
+}

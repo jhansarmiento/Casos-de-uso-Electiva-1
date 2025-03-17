@@ -15,42 +15,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css"> <!-- Estilos generales -->
+    <link rel="stylesheet" href="./navbar.css"> <!-- Estilos del navbar -->
 </head>
 
 <body>
-    <nav>
-        <div class="logo-container">
-            <img class="logo" src="./assets/icons/logo-opcion1.png" alt="logo">
-            <span>Huellas</span>
-        </div>
+    <div class="container-fluid">
+        <nav>
 
-        <div class="buttons-container">
-            <!-- Botón de adoptar -->
-            <button><a href="#contact">Adopta</a></button>
-
-            <!-- Menú hamburguesa -->
-            <div class="menu-toggle" id="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="logo-container">
+                <img class="logo" src="./assets/icons/logo-opcion1.png" alt="logo">
+                <span>Huellas</span>
             </div>
 
-            <!-- Menú desplegable -->
-            <ul class="menu" id="menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                <li><a href="#adopciones">Adopciones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+            <div class="buttons-container">
+                <!-- Botón de adoptar -->
+                <button class="d-block d-md-none"><a href="#contact">Adopta</a></button>
 
-    <section id="hero" class="hero"></section>
-    <section id="gallery" class="gallery"></section>
-    <section id="cares" class="cares"></section>
-    <section id="contact" class="contact"></section>
-    <footer></footer>
+                <!-- Menú hamburguesa -->
+                <div class="menu-toggle" id="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+
+                <!-- Menú desplegable -->
+                <ul class="menu" id="menu">
+                    <li><a href="#hero">Buscar</a></li>
+                    <li><a href="#gallery">En adopción</a></li>
+                    <li><a href="#cares">Cuidados</a></li>
+                    <li><a href="#contact">Adopta</a></li>
+                </ul>
+            </div>
+
+             <!-- Menú de escritorio -->
+             <ul class="menu-desktop d-none d-md-block">
+                <!-- margin with media queries using bootstrap -->
+                 <li class="me-3 me-lg-5"><a href="#hero">Buscar</a></li>
+                 <li class="me-3 me-lg-5 mx-xl-5"><a href="#gallery">En adopción</a></li>
+                 <li class="me-3 me-lg-5 mx-xl-5"><a href="#cares">Cuidados</a></li>
+                 <li class="me-lg-3 me-xl-5"><a href="#contact">Adopta</a></li>
+            </ul>
+
+        </nav>
+
+        <section id="hero" class="hero">
+
+        </section>
+        <section id="gallery" class="gallery"></section>
+        <section id="cares" class="cares"></section>
+        <section id="contact" class="contact"></section>
+        <footer></footer>
+    </div>
 
 
 
