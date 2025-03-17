@@ -63,7 +63,7 @@ nav button a {
 
 .buttons-container {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   margin-right: 1rem;
 }
 
@@ -180,8 +180,15 @@ nav button a {
 }
 
 /* Responsivo para pantallas menores a 768px */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .menu-desktop li {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+}
+
+/* Responsivo para pantallas menores a 768px */
+@media (min-width: 1200px) {
+  .menu-desktop li {
+    font-size: 2.3rem;
   }
 }
