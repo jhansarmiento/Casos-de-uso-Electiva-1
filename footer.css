@@ -1,0 +1,136 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el body ocupa toda la pantalla */
+}
+
+/* Contenedor principal para que el footer siempre quede abajo */
+.container-fluid {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos del footer */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    background: rgba(30, 64, 35, 0.2);
+    backdrop-filter: blur(150px);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1200px;
+    margin-top: auto; /* Empuja el footer al fondo */
+}
+
+/* Asegurar que los textos y enlaces estén bien distribuidos */
+.footer-column {
+    flex: 1;
+    margin: 0 15px;
+    text-align: center; /* Centra los elementos */
+}
+
+/* Estilos adicionales */
+.footer-column h3 {
+    color: black; /* Mantenido como en tu CSS original */
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer-column p, .footer-column a {
+    color: white; /* Mantenido como en tu CSS original */
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-column a:hover {
+    color: #5CBC46; /* Mantenido como en tu CSS original */
+}
+
+
+
+/* Estilos de los botones de donaciones */
+.btn {
+    margin: 5px;
+}
+
+.btn:hover{
+    color: white
+}
+
+/* Botón Nequi */
+.btn-nequi {
+    background-color: #5b008f; 
+    color: white;
+    border: none;
+}
+
+.btn-nequi:hover {
+    background-color: #43006e; 
+}
+
+/* Botón PayPal */
+.btn-paypal {
+    background-color: #004481; 
+    color: #ffffff; 
+    border: none;
+}
+
+.btn-paypal:hover {
+    background-color: #002b5c;
+}
+
+/* Botón Bancolombia */
+.btn-bancolombia {
+    background-color: #ffc439; 
+    color: white;
+    border: none;
+}
+
+.btn-bancolombia:hover {
+    background-color: #ffb400;
+}
+
+
+
+/* Estilos de los íconos de redes sociales */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.social-icons a {
+    color: white; 
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #5CBC46; 
+}
+
+/* Estilos de los derechos de autor */
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 0.9em;
+    color: white; 
+}

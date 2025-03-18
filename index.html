@@ -17,6 +17,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./styles.css"> <!-- Estilos generales -->
     <link rel="stylesheet" href="./navbar.css"> <!-- Estilos del navbar -->
+    <link rel="stylesheet" href="./footer.css"> <!--Estilos del footer-->
 </head>
 
 <body>
@@ -65,10 +66,54 @@
         <section id="gallery" class="gallery"></section>
         <section id="cares" class="cares"></section>
         <section id="contact" class="contact"></section>
-        <footer></footer>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- Columna de Autores -->
+            <div class="footer-column">
+                <h3>Autores</h3>
+                <p>Nombre del Autor 1</p>
+                <p>Nombre del Autor 2</p>
+                <p>Nombre del Autor 3</p>
+            </div>
+
+            <!-- Columna de Donaciones -->
+            <div class="footer-column">
+                <h3>Donaciones</h3>
+                <p>¡Apoya nuestro trabajo!</p>
+                <button type="button" class="btn btn-nequi">Nequi</button>
+                <button type="button" class="btn btn-paypal">PayPal</button>
+                <button type="button" class="btn btn-bancolombia">Bancolombia</button>
+
+             <!-- Derechos de autor -->
+
+                <div class="copyright">
+                <p>&copy; 2023 Adopta Un Peludito. Todos los derechos reservados.</p>
+                </div>
+
+            </div>
+
+            <!-- Columna de Redes Sociales -->
+            <div class="footer-column">
+                <h3>Redes Sociales</h3>
+                <div class="social-icons">
+                    <a href="https://twitter.com" target="_blank" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X" width="30">
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/640px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook" width="30">
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30">
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+
     </div>
 
-
+    
 
     <!-- Bootstrap JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -81,6 +126,9 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="./script.js"></script>
+
+
+
 </body>
 
 </html>
