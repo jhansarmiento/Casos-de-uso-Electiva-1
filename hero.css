@@ -1,16 +1,14 @@
 .hero {
-  position: relative;
-  margin: 14rem auto 5rem auto;
+  width: 85%;
+  height: 75vh;
+  margin: 14rem auto;
   z-index: 1;
 }
 
 .search-container {
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%); /* Centra horizontalmente */
+  width: 70%;
+  margin: 0 auto 3rem auto;
   display: flex;
-  width: 60vw;
   gap: 1rem;
   background-color: transparent;
   backdrop-filter: blur(30px);
@@ -22,6 +20,12 @@
   padding: 1rem;
   border-radius: 0.8rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) { /* Estilos para pantallas pequeñas de la barra de busqueda*/
+  .search-container {
+    width: 100%;
+  }
 }
 
 .search-input {
@@ -72,13 +76,9 @@
   opacity: 1;
 }
 
-.hero-content {
-  position: absolute;
-  top: 10rem;
-  left: 50%;
-  transform: translateX(-50%); /* Centra horizontalmente */
-  width: 80vw;
-  height: 70vh;
+.hero-content { /* Contenedor principal */
+  width: 100%;
+  height: 65vh;
   background-image: url("./assets/dogs_and_cats/chewy-gWzTum_yMCg-unsplash.jpg");
   background-size: cover; /* Asegura que cubra toda la pantalla sin deformarse */
   background-position: center center; /* Centra la imagen */
@@ -88,7 +88,7 @@
 }
 
 .hero-layer {
-  width: 40vw;
+  width: 45%;
   height: 100%;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -99,3 +99,38 @@
   );
   background-size: 50px;
 }
+
+.hero-text {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5rem;
+}
+
+.hero-subtitle {
+  color: white;
+  font-size: 4rem;
+  font-style: bold;
+  font-style: italic;
+  text-align: left;
+  margin: 0;
+}
+
+.hero-title {
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
+}
+
+.hero-description {
+  padding-top: 4rem;
+  color: white;
+  font-size: 2rem;
+  text-align: left;
+  margin: 0;
+}
+

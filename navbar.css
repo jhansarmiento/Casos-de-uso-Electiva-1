@@ -1,10 +1,10 @@
 /* Estilos del navbar */
 nav {
-  position: absolute; /* Fija el navbar sobre el fondo */
+  position: fixed; /* Fija el navbar sobre el fondo */
   top: 2rem; /* Espaciado desde arriba */
   left: 50%;
   transform: translateX(-50%); /* Centra el navbar */
-  width: 80%;
+  width: 85%;
   border-radius: 2rem;
   padding: 1.5rem;
   z-index: 1000; /* Asegura que esté sobre otros elementos */
@@ -113,18 +113,18 @@ nav button a {
   .logo-container {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     margin-left: 1rem;
   }
 
   .logo-container img {
-    width: 4rem;
-    height: 4rem;
+    width: 3.8rem;
+    height: 3.8rem;
   }
 
   .logo-container span {
     color: white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
   }
 
@@ -165,7 +165,7 @@ nav button a {
 /* Estilos del menú de escritorio */
 .menu-desktop {
   list-style: none;
-  margin: 0 1rem 0 0;
+  margin: 0;
 }
 
 .menu-desktop li {
@@ -177,18 +177,24 @@ nav button a {
   text-decoration: none;
   color: white;
   font-weight: bold;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.menu-desktop a:hover {
+  background-color: var(--secondary2-color);
 }
 
 /* Responsivo para pantallas menores a 768px */
 @media (min-width: 768px) {
   .menu-desktop li {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
-/* Responsivo para pantallas menores a 768px */
+/* Responsivo para pantallas mayores a 1200px */
 @media (min-width: 1200px) {
   .menu-desktop li {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
   }
 }
