@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./styles.css"> <!-- Estilos generales -->
     <link rel="stylesheet" href="./navbar.css"> <!-- Estilos del navbar -->
     <link rel="stylesheet" href="./footer.css"> <!--Estilos del footer-->
+    <link rel="stylesheet" href="./hero.css"> <!-- Estilos del hero -->
 </head>
 
 <body>
@@ -49,20 +50,39 @@
                 </ul>
             </div>
 
-             <!-- Menú de escritorio -->
-             <ul class="menu-desktop d-none d-md-block">
+            <!-- Menú de escritorio -->
+            <ul class="menu-desktop d-none d-md-block">
                 <!-- margin with media queries using bootstrap -->
-                 <li class="me-3 me-lg-5"><a href="#hero">Buscar</a></li>
-                 <li class="me-3 me-lg-5 mx-xl-5"><a href="#gallery">En adopción</a></li>
-                 <li class="me-3 me-lg-5 mx-xl-5"><a href="#cares">Cuidados</a></li>
-                 <li class="me-lg-3 me-xl-5"><a href="#contact">Adopta</a></li>
+                <li class="me-3 me-lg-5"><a href="#hero">Buscar</a></li>
+                <li class="me-3 me-lg-5 mx-xl-5"><a href="#gallery">En adopción</a></li>
+                <li class="me-3 me-lg-5 mx-xl-5"><a href="#cares">Cuidados</a></li>
+                <li class="me-lg-3 me-xl-5"><a href="#contact">Adopta</a></li>
             </ul>
 
         </nav>
 
         <section id="hero" class="hero">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Ingrese su ciudad">
+                <select class="search-select">
+                    <option value="perros">Perros</option>
+                    <option value="gatos">Gatos</option>
+                </select>
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" width="20" height="20" stroke-width="1">
+                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                        <path d="M21 21l-6 -6"></path>
+                    </svg>
+                </button>
+            </div>
 
+            <div class="hero-content">
+                <div class="hero-layer">
+                </div>
+            </div>
         </section>
+
         <section id="gallery" class="gallery"></section>
         <section id="cares" class="cares"></section>
         <section id="contact" class="contact"></section>

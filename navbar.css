@@ -1,10 +1,10 @@
 /* Estilos del navbar */
 nav {
   position: absolute; /* Fija el navbar sobre el fondo */
-  top: 1rem; /* Espaciado desde arriba */
+  top: 2rem; /* Espaciado desde arriba */
   left: 50%;
   transform: translateX(-50%); /* Centra el navbar */
-  width: 87%;
+  width: 80%;
   border-radius: 2rem;
   padding: 1.5rem;
   z-index: 1000; /* Asegura que esté sobre otros elementos */

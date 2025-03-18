@@ -1,0 +1,101 @@
+.hero {
+  position: relative;
+  margin: 14rem auto 0 auto;
+}
+
+.search-container {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%); /* Centra horizontalmente */
+  display: flex;
+  width: 60vw;
+  gap: 1rem;
+  background-color: transparent;
+  backdrop-filter: blur(30px);
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(30, 64, 35, 0.2)
+  );
+  padding: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 4;
+}
+
+.search-input {
+  padding: 1rem;
+  border: none;
+  background-color: rgba(30, 64, 35, 0.5);
+  backdrop-filter: blur(20px);
+  color: white;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  flex: 1;
+}
+
+.search-select {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 1rem;
+  flex: 0.3;
+  background-color: rgba(30, 64, 35, 0.5);
+  backdrop-filter: blur(20px);
+  color: white;
+}
+
+.search-button {
+  padding: 1rem;
+  border: none;
+  background-color: transparent;
+  backdrop-filter: blur(30px);
+  background-image: linear-gradient(
+    120deg,
+    rgba(217, 216, 216, 0.2),
+    rgba(30, 64, 35, 0.5)
+  );
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: rgba(30, 64, 35, 0.558);
+}
+
+.search-input::placeholder,
+.search-select::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%); /* Centra horizontalmente */
+  width: 80%;
+  height: 70vh;
+  background-image: url("./assets/dogs_and_cats/chewy-gWzTum_yMCg-unsplash.jpg");
+  background-size: cover; /* Asegura que cubra toda la pantalla sin deformarse */
+  background-position: center center; /* Centra la imagen */
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.hero-layer {
+  width: 50%;
+  height: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    120deg,
+    rgba(217, 216, 216, 0.2),
+    rgba(30, 64, 35, 0.5)
+  );
+  background-size: 50px;
+}
