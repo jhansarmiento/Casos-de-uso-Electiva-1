@@ -6,8 +6,8 @@
 }
 
 .search-container {
-  width: 70%;
-  margin: 0 auto 3rem auto;
+  width: 60%;
+  margin: 0 auto 4rem auto;
   display: flex;
   gap: 1rem;
   background-color: transparent;
@@ -20,12 +20,6 @@
   padding: 1rem;
   border-radius: 0.8rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) { /* Estilos para pantallas pequeñas de la barra de busqueda*/
-  .search-container {
-    width: 100%;
-  }
 }
 
 .search-input {
@@ -88,30 +82,32 @@
 }
 
 .hero-layer {
-  width: 45%;
+  width: 43%;
   height: 100%;
   background-color: transparent;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
   background-image: linear-gradient(
     120deg,
     rgba(217, 216, 216, 0.2),
     rgba(30, 64, 35, 0.5)
   );
-  background-size: 50px;
+  background-size: 30px;
 }
 
-.hero-text {
-  width: 80%;
+.hero-titles {
+  position: absolute;
+  top: 0%;
+  width: 30%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 5rem;
+  margin-left: 4rem;
 }
 
 .hero-subtitle {
   color: white;
-  font-size: 4rem;
+  font-size: 3rem;
   font-style: bold;
   font-style: italic;
   text-align: left;
@@ -120,17 +116,95 @@
 
 .hero-title {
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   text-align: left;
   margin: 0;
 }
 
 .hero-description {
-  padding-top: 4rem;
+  position: absolute;
+  top: 55%;
+  width: 30%;
+  height: 100%;
   color: white;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  text-align: left;
+  padding-top: 3rem;
+  margin-left: 4rem;
+}
+
+.hero-stats {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  top: 73%;
+  right: 8%;
+}
+
+.hero-stat {
+  color: white;
+  width: 80vw;
+  height: 100%;
+}
+
+.hero-stat-value {
+  font-size: 3.5rem;
+  font-weight: bold;
   text-align: left;
   margin: 0;
+}
+
+.hero-stat-label {
+  font-size: 2rem;
+  font-weight: lighter;
+  text-align: left;
+  margin: 0;
+}
+
+@media (max-width: 576px) { 
+  /* Estilos desde 0px hasta 576px*/
+  .search-container {
+    width: 100%;
+    margin: 0 auto 2rem auto;
+  }
+
+  .hero-layer {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 1000px) { 
+/* Estilos desde 576px hasta 1000px*/
+  .search-container {
+    width: 80%;
+    margin: 0 auto 2rem auto;
+  }
+
+  .hero-content {
+    height: 75vh;
+  }  
+
+  .hero-layer {
+    display: none;
+  }
+
+  .hero-titles {
+    position: absolute;
+    top: 0%; 
+    left: 15%;
+    width: 60%;
+  }
+
+  .hero-subtitle {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    text-align: center;
+  }
 }
 
