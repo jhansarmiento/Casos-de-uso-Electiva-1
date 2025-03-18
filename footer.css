@@ -1,14 +1,3 @@
-/* Estilos generales */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100vh; /* Asegura que el body ocupa toda la pantalla */
-}
-
 /* Contenedor principal para que el footer siempre quede abajo */
 .container-fluid {
     flex: 1;
