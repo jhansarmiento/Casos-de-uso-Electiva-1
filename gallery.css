@@ -1,6 +1,6 @@
 .gallery {
     width: 85%;
-    height: 88vh;
+    height: 80%;
     margin: 4rem auto;
     z-index: 1;
 }
@@ -9,34 +9,40 @@
     width: 100%;
     height: 100%;
     background-color: transparent;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
     background-image: linear-gradient(
       120deg,
-      rgba(255, 255, 255, 0.3),
-      rgba(30, 64, 35, 0.2)
+      rgba(255, 255, 255, 0.4),
+      rgba(30, 64, 35, 0.4)
     );
+    background-size: 40px;
     border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin: 4rem auto;
 }
 
 .category-buttons {
-    width: 40%;
+    width: 30%;
     height: auto;
     display: flex;
     gap: 2rem;
     margin: 0 auto;
-    padding: 4rem 0 2rem 0;
 }
 
 .category-button {
-    width: 100%;
+    width: 50%;
     height: auto;
-    padding: 2rem;
+    padding: 1rem;
     border: none;
     border-radius: 1rem;
-    background-color: rgba(24, 51, 28, 0.2);
+    background-color: rgba(24, 51, 28, 0.4);
     backdrop-filter: blur(10px);
     color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
@@ -47,28 +53,51 @@
     background-color: rgba(24, 51, 28, 0.6);
 }
 
-.gallery-filters {
-    width: 100%;
-    max-height: 100%;
-    margin: 3rem auto 2rem auto;
-    display: flex;
-    justify-content: center;
-}
-
 .gallery-images {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    max-width: 90%;
-    height: auto;
+    align-items: center;
+    gap: 4rem;
 }
 
 .gallery-item {
-    width: 300px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 1rem;
-    display: none;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(30, 64, 35, 0.2)
+    );
+    padding: 2rem;
+    border-radius: 2rem;
+    transition: transform 0.3s ease-in-out;
 }
 
+.gallery-item img {
+    width: 380px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+}
+
+.pet-description p{
+    color: white;
+    margin-left: 2rem;
+    font-size: 2.7rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.pet-description span {
+    font-weight: bold;
+    font-size: 2.8rem;
+}

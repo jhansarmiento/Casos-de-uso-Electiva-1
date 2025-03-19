@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Mostrar inicialmente solo los perros
-  showCategory("dog");
+  showCategory("cat");
 
   categoryButtons.forEach(button => {
       button.addEventListener("click", function () {
