@@ -1,7 +1,7 @@
 .hero {
   width: 85%;
   height: 75vh;
-  margin: 14rem auto;
+  margin: 14rem auto 2rem auto;
   z-index: 1;
 }
 
@@ -258,6 +258,10 @@
 
 @media (min-width: 576px) and (max-width: 1000px) {
   /* Estilos desde 576px hasta 1000px*/
+  .hero {
+    margin-bottom: 10rem;
+  }
+
   .search-container {
     width: 80%;
     margin: 0 auto 2rem auto;

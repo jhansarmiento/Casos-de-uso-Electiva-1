@@ -1,0 +1,19 @@
+.gallery {
+    width: 85%;
+    height: 75vh;
+    margin: 4rem auto;
+    z-index: 1;
+}
+
+.gallery-container {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(30, 64, 35, 0.2)
+    );
+    border-radius: 2rem;
+}

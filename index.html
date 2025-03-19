@@ -17,8 +17,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./styles.css"> <!-- Estilos generales -->
     <link rel="stylesheet" href="./navbar.css"> <!-- Estilos del navbar -->
-    <link rel="stylesheet" href="./footer.css"> <!--Estilos del footer-->
     <link rel="stylesheet" href="./hero.css"> <!-- Estilos del hero -->
+    <link rel="stylesheet" href="./gallery.css"> <!-- Estilos de la galería -->
+    <link rel="stylesheet" href="./footer.css"> <!--Estilos del footer-->
     <link rel="stylesheet" href="./forms.css"> <!--Estilos-->
 </head>
 
@@ -116,7 +117,16 @@
 
         </section>
 
-        <section id="gallery" class="gallery"></section>
+        <section id="gallery" class="gallery">
+            <div class="gallery-container">
+
+                <div class="category-buttons">
+                    <button class="category-button" data-category="gatos">Gatos</button><button class="category-button" data-category="perros">Perros</button>
+                </div>
+
+            </div>
+        </section>
+
         <section id="cares" class="cares"></section>
         <section id="contact" class="contact"></section>
 
