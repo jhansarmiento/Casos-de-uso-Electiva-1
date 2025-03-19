@@ -89,6 +89,10 @@
     transform: scale(1.1);
 }
 
+.pet-description {
+    margin: 0 auto;
+}
+
 .pet-description p{
     color: white;
     margin-left: 2rem;
@@ -100,4 +104,99 @@
 .pet-description span {
     font-weight: bold;
     font-size: 2.8rem;
+}
+
+@media (max-width: 576px) {
+    /* Estilos desde 0px hasta 576px*/
+    .gallery-container {
+        background-size: 15px;
+        gap: 2rem;
+        margin: 2rem auto;
+    }
+
+    .category-buttons {
+        width: 70%;
+    }
+    
+    .category-button {
+        width: 70%;
+        font-size: 1.8rem;
+    }
+
+    .gallery-images {
+        gap: 0.8rem;
+    }
+    
+    .gallery-item {
+        width: 130px;
+        height: 220px;
+        padding: 1rem;
+        border-radius: 1.5rem;
+    }
+    
+    .gallery-item img {
+        width: 110px;
+        height: 140px;
+        padding: 0.5rem;
+        border-radius: 1rem;
+    }
+    
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+    
+    .pet-description p{
+        font-size: 0.7rem;
+        margin: 0 auto;
+        line-height: 0rem;
+    }
+    
+    .pet-description span {
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 1000px) {
+    /* Estilos desde 576px hasta 1000px*/
+    .gallery-container {
+        background-size: 20px;
+    }
+
+    .category-buttons {
+        width: 55%;
+    }
+    
+    .category-button {
+        width: 50%;
+    }
+
+    .gallery-images {
+        gap: 2rem;
+    }
+    
+    .gallery-item {
+        width: 290px;
+        height: 450px;
+    }
+    
+    .gallery-item img {
+        width: 250px;
+        height: 300px;
+    }
+    
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+    
+    .pet-description p{
+        font-size: 1.8rem;
+        margin: 0 auto;
+        line-height: 1rem;
+    }
+    
+    .pet-description span {
+        font-weight: bold;
+        font-size: 1.9rem;
+    }
 }
