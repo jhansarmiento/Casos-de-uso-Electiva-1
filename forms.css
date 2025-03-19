@@ -7,26 +7,29 @@
 
 .contact-container {
     display: flex;
-    max-width: 1200px; /* Aumentamos el ancho máximo */
+    max-width: 1200px;
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    justify-content: center; /* Centra los elementos */
+    gap: 20px; /* Espacio entre el mapa y el formulario */
+    padding: 20px;
 }
 
 /* Contenedor del mapa */
 .map-container {
-    width: 50%;
-    max-width: 400px; /* Evita que crezca demasiado */
-    height: 400px; /* Altura fija */
+    width: 400px; /* Tamaño cuadrado */
+    height: 400px; /* Mantiene el tamaño cuadrado */
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0; /* Evita que se reduzca demasiado */
 }
 
 /* Título del mapa */
@@ -53,9 +56,9 @@
     border-radius: 10px;
 }
 
-
+/* Contenedor del formulario */
 .form-container {
-    width: 50%;
+    flex: 1; /* Hace que el formulario ocupe el espacio restante */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -81,14 +84,24 @@
     margin-bottom: 5px;
 }
 
-.input-group input,
+.input-group input {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+}
+
 .input-group select {
+
     background: rgba(255, 255, 255, 0.2);
     border: none;
     padding: 10px;
     border-radius: 10px;
     color: black;
     outline: none;
+
 }
 
 .input-group input::placeholder {
