@@ -53,18 +53,20 @@ nav button a {
 }
 
 .logo-container img {
-  /* Logo Imagen*/
+  /* Logo Imagen */
   width: 5.2rem;
   height: 5.2rem;
 }
 
 .logo-container span {
+  /* Texto al lado del logo */
   color: white;
   font-size: 3rem;
   font-weight: bold;
 }
 
 .buttons-container {
+  /* Contenedor de los botones en pantalla pequeña */
   display: flex;
   gap: 2rem;
   margin-right: 1rem;
@@ -81,7 +83,7 @@ nav button a {
 
 .menu-toggle {
   /* Estilos del menú hamburguesa */
-  display: none;
+  display: none; /* Oculta el menú por defecto */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -96,10 +98,12 @@ nav button a {
 }
 
 .menu li {
+  /* Estilos de los elementos del menú */
   display: inline-block;
 }
 
 .menu a {
+  /* Estilos de los enlaces del menú */
   text-decoration: none;
   color: white;
   font-size: 1.2rem;
@@ -114,6 +118,7 @@ nav button a {
 /* Responsivo para pantallas menores a 768px */
 @media (max-width: 768px) {
   .logo-container {
+    /* Contenedor del logo y el texto del logo*/
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -121,11 +126,13 @@ nav button a {
   }
 
   .logo-container img {
+    /* Logo Imagen */
     width: 3.8rem;
     height: 3.8rem;
   }
 
   .logo-container span {
+    /* Texto al lado del logo */
     color: white;
     font-size: 1.8rem;
     font-weight: bold;
@@ -136,6 +143,7 @@ nav button a {
   }
 
   .menu {
+    /* Estilos del menú desplegable */
     display: none;
     position: absolute;
     top: 110%;
@@ -165,18 +173,21 @@ nav button a {
   }
 }
 
-/* Estilos del menú de escritorio */
+/* Estilos del menú de escritorio solo visible en pantallas mayores a 768px */
 .menu-desktop {
+  /* Estilos del menú de escritorio */
   list-style: none;
   margin: 0;
 }
 
 .menu-desktop li {
+  /* Estilos de los elementos del menú */
   display: inline-block;
   font-size: 1.8rem;
 }
 
 .menu-desktop a {
+  /* Estilos de los enlaces del menú */
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -186,17 +197,21 @@ nav button a {
 }
 
 .menu-desktop a:hover {
+  /* Estilos de los enlaces del menú al pasar el mouse */
   background-color: var(--secondary2-color);
 }
 
 @media (max-width: 800px) {
+  /* Responsivo para pantallas entre 768px a 800px */
   .menu-desktop a {
+    /* Cambia el tamaño de los enlaces para pantallas entre 768px y 800px */
     font-size: 1.6rem;
   }
 }
 
-/* Responsivo para pantallas menores a 768px */
+/* Responsivo para pantallas mayores a 800px */
 @media (min-width: 800px) {
+  /* Cambia el tamaño de los enlaces para pantallas mayores a 800px */
   .menu-desktop a {
     font-size: 1.7rem;
   }
@@ -204,6 +219,7 @@ nav button a {
 
 /* Responsivo para pantallas mayores a 1200px */
 @media (min-width: 1200px) {
+  /* Cambia el tamaño de los enlaces para pantallas mayores a 1200px */
   .menu-desktop a {
     font-size: 2.3rem;
   }
