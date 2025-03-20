@@ -1,4 +1,5 @@
 .contact-section {
+    /* Contenedor principal */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +8,7 @@
 }
 
 .contact-container {
+    /* Contenedor de la sección de contacto */
     display: flex;
     max-width: 1200px;
     width: 100%;
@@ -34,13 +36,16 @@
 }
 
 @media (max-width : 700px) {
+    /* Ajustes para pantallas pequeñas */
     .map-container {
+        /* Cambia el tamaño del contenedor del mapa para pantallas pequeñas */
         flex: 0.7;
     }
 }
 
 /* Título del mapa */
 .map-title {
+    /* Título del mapa, ajusta la posición, el fondo y el tamaño, ademas define el espaciado */
     position: absolute;
     top: 10px;
     left: 50%;
@@ -57,6 +62,7 @@
 
 /* Ajuste del iframe */
 .map-container iframe {
+    /* Ajusta el iframe para que ocupe todo el contenedor */
     width: 100%;
     height: 100%;
     border: 0;
@@ -73,6 +79,7 @@
 }
 
 .form-container h2 {
+    /* Título del formulario */
     text-align: center;
     color: #fff;
     margin-bottom: 20px;
@@ -80,18 +87,21 @@
 
 /* Inputs */
 .input-group {
+    /* Contenedor de los inputs */
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
 .input-group label {
+    /* Etiqueta de los inputs, cambia el color, el peso y el margen */
     color: #fff;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
 .input-group input {
+    /* Input de los entradas, cambia el fondo, el borde, el padding y el borde */
     background: rgba(255, 255, 255, 0.2);
     border: none;
     padding: 10px;
@@ -101,7 +111,7 @@
 }
 
 .input-group select {
-
+    /* Select de los entradas, cambia el fondo, el borde, el padding y el borde */
     background: rgba(255, 255, 255, 0.2);
     border: none;
     padding: 10px;
@@ -112,11 +122,13 @@
 }
 
 .input-group input::placeholder {
+    /* Placeholder de los inputs, cambia el color */
     color: rgba(255, 255, 255, 0.7);
 }
 
 /* Botón */
 .submit-button {
+    /* Botón, cambia el fondo, el borde, el padding y el borde */
     background: rgba(255, 255, 255, 0.2);
     border: none;
     padding: 10px;
@@ -128,5 +140,6 @@
 }
 
 .submit-button:hover {
+    /* Botón al pasar el mouse, cambia el fondo */
     background: rgba(255, 255, 255, 0.4);
 }
