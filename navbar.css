@@ -170,31 +170,38 @@ nav button a {
 
 .menu-desktop li {
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .menu-desktop a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 1rem;
+  font-size: 1.5rem;
 }
 
 .menu-desktop a:hover {
   background-color: var(--secondary2-color);
 }
 
+@media (max-width: 800px) {
+  .menu-desktop a {
+    font-size: 1.6rem;
+  }
+}
+
 /* Responsivo para pantallas menores a 768px */
-@media (min-width: 768px) {
-  .menu-desktop li {
-    font-size: 1.8rem;
+@media (min-width: 800px) {
+  .menu-desktop a {
+    font-size: 1.7rem;
   }
 }
 
 /* Responsivo para pantallas mayores a 1200px */
 @media (min-width: 1200px) {
-  .menu-desktop li {
-    font-size: 2.5rem;
+  .menu-desktop a {
+    font-size: 2.3rem;
   }
 }

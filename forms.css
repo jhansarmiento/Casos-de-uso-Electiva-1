@@ -33,6 +33,12 @@
     flex-shrink: 0; /* Evita que se reduzca demasiado */
 }
 
+@media (max-width : 700px) {
+    .map-container {
+        flex: 0.7;
+    }
+}
+
 /* Título del mapa */
 .map-title {
     position: absolute;
@@ -100,7 +106,7 @@
     border: none;
     padding: 10px;
     border-radius: 10px;
-    color: black;
+    color: white;
     outline: none;
 
 }
