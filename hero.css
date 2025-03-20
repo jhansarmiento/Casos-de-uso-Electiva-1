@@ -1,4 +1,5 @@
 .hero {
+  /* Contenedor principal */
   width: 85%;
   height: 75vh;
   margin: 14rem auto 2rem auto;
@@ -6,6 +7,7 @@
 }
 
 .search-container {
+  /* Contenedor de la barra de búsqueda */
   width: 60%;
   margin: 0 auto 4rem auto;
   display: flex;
@@ -23,6 +25,7 @@
 }
 
 .search-input {
+  /* Input de la barra de búsqueda */
   padding: 1rem;
   border: none;
   background-color: rgba(30, 64, 35, 0.5);
@@ -34,6 +37,7 @@
 }
 
 .search-select {
+  /* Select de la barra de búsqueda */
   padding: 1rem;
   border: none;
   border-radius: 5px;
@@ -45,6 +49,7 @@
 }
 
 .search-button {
+  /* Botón lupa de la barra de búsqueda */
   padding: 1rem;
   border: none;
   background-color: transparent;
@@ -61,17 +66,19 @@
 }
 
 .search-button:hover {
+  /* Efecto de hover para el botón lupa */
   background-color: rgba(30, 64, 35, 0.558);
 }
 
 .search-input::placeholder,
 .search-select::placeholder {
+  /* Placeholder de la barra de búsqueda */
   color: white;
   opacity: 1;
 }
 
 .hero-content {
-  /* Contenedor principal */
+  /* Contenedor principal del contenido de la primera seccion*/
   width: 100%;
   height: 65vh;
   background-image: url("./assets/dogs_and_cats/chewy-gWzTum_yMCg-unsplash.jpg");
@@ -83,6 +90,7 @@
 }
 
 .hero-layer {
+  /* Capa de transparencia lateral*/
   width: 43%;
   height: 100%;
   background-color: transparent;
@@ -96,6 +104,7 @@
 }
 
 .hero-titles {
+  /* Contenedor de los títulos */
   position: absolute;
   top: 0%;
   width: 30%;
@@ -107,6 +116,7 @@
 }
 
 .hero-subtitle {
+  /* Subtítulo */
   color: white;
   font-size: 3rem;
   font-style: bold;
@@ -116,6 +126,7 @@
 }
 
 .hero-title {
+  /* Título principal */
   color: white;
   font-size: 4rem;
   font-weight: bold;
@@ -124,6 +135,7 @@
 }
 
 .hero-description {
+  /* Descripción */
   position: absolute;
   top: 55%;
   width: 30%;
@@ -136,6 +148,7 @@
 }
 
 .hero-stats {
+  /* Contenedor de las estadísticas */
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -145,12 +158,14 @@
 }
 
 .hero-stat {
+  /* Estadísticas */
   color: white;
   width: 80%;
   height: 100%;
 }
 
 .hero-stat-value {
+  /* Valores de las estadísticas */
   font-size: 3.5rem;
   font-weight: bold;
   text-align: left;
@@ -158,6 +173,7 @@
 }
 
 .hero-stat-label {
+  /* Etiquetas de las estadísticas */
   font-size: 2rem;
   font-weight: lighter;
   text-align: left;
@@ -167,15 +183,18 @@
 @media (max-width: 576px) {
   /* Estilos desde 0px hasta 576px*/
   .search-container {
+    /* Contenedor de la barra de búsqueda */
     width: 100%;
     margin: 0 auto 2rem auto;
   }
 
   .hero-layer {
+    /* Capa de transparencia lateral no visible en pantallas menores a 576px*/
     display: none;
   }
 
   .hero-titles {
+    /* Cambia la posicion del contenedor de los títulos */
     position: absolute;
     top: -16%;
     left: 18%;
@@ -184,6 +203,7 @@
   }
 
   .hero-subtitle {
+    /* Cambia el estilo del subtítulo para pantallas menores a 576px*/
     font-size: 1.5rem;
     text-align: center;
     background-color: transparent;
@@ -200,11 +220,13 @@
   }
 
   .hero-title {
+    /* Cambia el estilo del título principal para pantallas menores a 576px*/
     font-size: 2.5rem;
     text-align: center;
   }
 
   .hero-description {
+    /* Cambia la posición de la descripción para pantallas menores a 576px*/
     position: absolute;
     top: 58%;
     left: 5%;
@@ -224,6 +246,7 @@
   }
 
   .hero-stats {
+    /* Cambia la posición de las estadísticas para pantallas menores a 576px*/
     position: absolute;
     top: 78%;
     left: 17%;
@@ -233,6 +256,7 @@
   }
 
   .hero-stat {
+    /* Cambia el estilo de las estadísticas para pantallas menores a 576px aplica transparencia*/
     background-color: transparent;
     backdrop-filter: blur(20px);
     background-image: linear-gradient(
@@ -245,11 +269,13 @@
   }
 
   .hero-stat-value {
+    /* Cambia el estilo de los valores de las estadísticas para pantallas menores a 576px*/
     font-size: 1.5rem;
     text-align: center;
   }
 
   .hero-stat-label {
+    /* Cambia el estilo de las etiquetas de las estadísticas para pantallas menores a 576px*/
     font-size: 1rem;
     text-align: center;
     margin: 0;
@@ -259,23 +285,28 @@
 @media (min-width: 576px) and (max-width: 1000px) {
   /* Estilos desde 576px hasta 1000px*/
   .hero {
+    /* Cambia el margen inferior para pantallas entre 576px y 1000px*/
     margin-bottom: 10rem;
   }
 
   .search-container {
+    /* Cambia el ancho de la barra de búsqueda para pantallas entre 576px y 1000px*/
     width: 80%;
     margin: 0 auto 2rem auto;
   }
 
   .hero-content {
+    /* Cambia el ancho de la sección principal para pantallas entre 576px y 1000px*/
     height: 75vh;
   }
 
   .hero-layer {
+    /* Capa de transparencia lateral no visible en pantallas entre 576px y 1000px*/
     display: none;
   }
 
   .hero-titles {
+    /* Cambia la posición del contenedor de los títulos para pantallas entre 576px y 1000px*/
     position: absolute;
     top: -22%;
     left: 15%;
@@ -283,6 +314,7 @@
   }
 
   .hero-subtitle {
+    /* Cambia el estilo del subtítulo para pantallas entre 576px y 1000px*/
     font-size: 2.5rem;
     text-align: center;
     background-color: transparent;
@@ -299,11 +331,13 @@
   }
 
   .hero-title {
+    /* Cambia el estilo del título para pantallas entre 576px y 1000px*/
     font-size: 3.5rem;
     text-align: center;
   }
 
   .hero-description {
+    /* Cambia el estilo de la descripción para pantallas entre 576px y 1000px*/
     position: absolute;
     top: 55%;
     left: 15%;
@@ -322,6 +356,7 @@
   }
 
   .hero-stats {
+    /* Cambia la posición de las estadísticas para pantallas entre 576px y 1000px*/
     position: absolute;
     top: 80%;
     left: 15%;
@@ -331,6 +366,7 @@
   }
 
   .hero-stat {
+    /* Cambia el estilo de las estadísticas para pantallas entre 576px y 1000px aplica transparencia*/
     background-color: transparent;
     backdrop-filter: blur(20px);
     background-image: linear-gradient(
@@ -343,11 +379,13 @@
   }
 
   .hero-stat-value {
+    /* Cambia el estilo de los valores de las estadísticas para pantallas entre 576px y 1000px*/
     font-size: 3rem;
     text-align: center;
   }
 
   .hero-stat-label {
+    /* Cambia el estilo de las etiquetas de las estadísticas para pantallas entre 576px y 1000px*/
     font-size: 1.8rem;
     text-align: center;
     margin: 0;
