@@ -1,4 +1,5 @@
 .gallery {
+    /* Contenedor principal */
     width: 85%;
     height: 80%;
     margin: 4rem auto;
@@ -6,6 +7,9 @@
 }
 
 .gallery-container {
+    /* Contenedor de la galería ajusta el tamaño, aplica transparencia, 
+        ajusta margenes, espaciado y bordes, ademas define la distribución
+        de los elementos */
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -26,6 +30,7 @@
 }
 
 .category-buttons {
+    /* Contenedor de los botones de categoría ajusta el tamaño y posicionamiento */
     width: 30%;
     height: auto;
     display: flex;
@@ -34,6 +39,7 @@
 }
 
 .category-button {
+    /* Estilos de los botones de categoría */
     width: 50%;
     height: auto;
     padding: 1rem;
@@ -50,10 +56,12 @@
 }
 
 .category-button:hover {
+    /* Cambia el color de fondo al pasar el mouse sobre los botones */
     background-color: rgba(24, 51, 28, 0.6);
 }
 
 .gallery-images {
+    /* Contenedor de las imagenes de la galeria */
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -66,6 +74,7 @@
 }
 
 .gallery-item {
+    /* Estilos de los items de la galeria aplica transparencia, espaciado, bordes y transiciones */
     background-color: transparent;
     backdrop-filter: blur(5px);
     background-image: linear-gradient(
@@ -81,6 +90,7 @@
 }
 
 .gallery-item img {
+    /* Estilos de las imagenes de la galeria, ajusta el tamaño, espaciado y bordes */
     width: 250px;
     height: 300px;
     object-fit: cover;
@@ -89,15 +99,18 @@
 }
 
 .gallery-item:hover {
+    /* Cambia el tamaño al pasar el mouse sobre los items */
     transform: scale(1.1);
 }
 
 .pet-description {
+    /* Contenedor de la descripcion de la mascota */
     margin: 0 auto;
     line-height: 1rem;
 }
 
 .pet-description p{
+    /* Estilos de la descripcion de la mascota */
     color: white;
     margin-left: 2rem;
     font-size: 1.8rem;
@@ -106,6 +119,7 @@
 }
 
 .pet-description span {
+    /* Estilos de la descripcion de la mascota, hace que el texto sea en negrita */
     font-weight: bold;
     font-size: 1.9rem;
 }
@@ -113,25 +127,30 @@
 @media (max-width: 576px) {
     /* Estilos desde 0px hasta 576px*/
     .gallery-container {
+        /* Cambia el estilo de la transparencia para pantallas entre 0px y 576px*/
         background-size: 15px;
         gap: 2rem;
         margin: 2rem auto;
     }
 
     .category-buttons {
+        /* Cambia el ancho del contenedor de los botones de categoría para pantallas menores a 576px*/
         width: 70%;
     }
     
     .category-button {
+        /* Cambia el ancho de los botones de categoría para pantallas menores a 576px*/
         width: 70%;
         font-size: 1.8rem;
     }
 
     .gallery-images {
+        /* Cambia el espaciado entre las imagenes de la galeria para pantallas menores a 576px*/
         gap: 0.8rem;
     }
     
     .gallery-item {
+        /* Cambia el ancho del contenedor de los items de la galeria para pantallas menores a 576px*/
         width: 130px;
         height: 220px;
         padding: 1rem;
@@ -139,6 +158,7 @@
     }
     
     .gallery-item img {
+        /* Cambia el tamaño de las imagenes de la galeria para pantallas menores a 576px*/
         width: 110px;
         height: 140px;
         padding: 0.5rem;
@@ -146,16 +166,19 @@
     }
     
     .gallery-item:hover {
+        /* Cambia el tamaño al pasar el mouse sobre los items de la galeria para pantallas menores a 576px*/
         transform: scale(1.05);
     }
     
     .pet-description p{
+        /* Cambia el estilo de la descripcion de la mascota para pantallas menores a 576px*/
         font-size: 0.7rem;
         margin: 0 auto;
         line-height: 0rem;
     }
     
     .pet-description span {
+        /* Cambia el estilo de la descripcion de la mascota para pantallas menores a 576px, hace que el texto sea en negrita */
         font-weight: bold;
         font-size: 0.8rem;
     }
@@ -164,43 +187,52 @@
 @media (min-width: 576px) and (max-width: 1000px) {
     /* Estilos desde 576px hasta 1000px*/
     .gallery-container {
+        /* Cambia el estilo de la transparencia para pantallas entre 576px y 1000px*/
         background-size: 20px;
     }
 
     .category-buttons {
+        /* Cambia el ancho del contenedor de los botones de categoría para pantallas entre 576px y 1000px*/
         width: 55%;
     }
     
     .category-button {
+        /* Cambia el ancho de los botones de categoría para pantallas entre 576px y 1000px*/
         width: 50%;
     }
 
     .gallery-images {
+        /* Cambia el espaciado entre las imagenes de la galeria para pantallas entre 576px y 1000px*/
         gap: 2rem;
     }
     
     .gallery-item {
+        /* Cambia el ancho del contenedor de los items de la galeria para pantallas entre 576px y 1000px*/
         width: 235px;
         height: 380px;
         padding: 1.5rem;
     }
     
     .gallery-item img {
+        /* Cambia el tamaño de las imagenes de la galeria para pantallas entre 576px y 1000px*/
         width: 205px;
         height: 260px;
     }
     
     .gallery-item:hover {
+        /* Cambia el tamaño al pasar el mouse sobre los items de la galeria para pantallas entre 576px y 1000px*/
         transform: scale(1.05);
     }
     
     .pet-description p{
+        /* Cambia el estilo de la descripcion de la mascota para pantallas entre 576px y 1000px*/
         font-size: 1.4rem;
         margin: 0 auto;
         line-height: 0.8rem;
     }
     
     .pet-description span {
+        /* Cambia el estilo de la descripcion de la mascota para pantallas entre 576px y 1000px, hace que el texto sea en negrita */
         font-weight: bold;
         font-size: 1.5rem;
     }
