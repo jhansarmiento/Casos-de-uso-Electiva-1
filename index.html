@@ -26,7 +26,7 @@
 <body>
     <div class="container-fluid">
         <nav>
-
+            <!-- Logo -->
             <div class="logo-container">
                 <img class="logo" src="./assets/icons/logo-opcion1.png" alt="logo">
                 <span>Huellas</span>
@@ -54,7 +54,7 @@
 
             <!-- Menú de escritorio -->
             <ul class="menu-desktop d-none d-md-block">
-                <!-- margin with media queries using bootstrap -->
+                <!-- Margenes con media queries usando bootstrap -->
                 <li class="me-1 me-lg-2"><a href="#hero">Buscar</a></li>
                 <li class="me-1 me-lg-2 me-xl-5"><a href="#gallery">En adopción</a></li>
                 <li class="me-1 me-lg-2 me-xl-5"><a href="#cares">Cuidados</a></li>
@@ -65,12 +65,17 @@
 
         <section id="hero" class="hero">
 
-            <div class="search-container">
+            <!-- Barra de busqueda -->
+            <div class="search-container"> 
+
                 <input type="text" class="search-input" placeholder="Ingrese su ciudad">
+
                 <select class="search-select">
                     <option value="perros">Perros</option>
                     <option value="gatos">Gatos</option>
                 </select>
+
+                <!-- Boton de busqueda con svg de lupa-->
                 <button class="search-button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-linecap="round" stroke-linejoin="round" width="20" height="20" stroke-width="1">
@@ -80,21 +85,26 @@
                 </button>
             </div>
 
+            <!-- Contenido de la primera sección -->
             <div class="hero-content">
 
+                <!-- Capa de transparencia para el efecto glassmorphism-->
                 <div class="hero-layer">
                 </div>
 
+                <!-- Titulos -->
                 <div class="hero-titles">
                     <p class="hero-subtitle">Crea Felicidad</p>
                     <p class="hero-title">Salvando Vidas</p>
                 </div>
 
+                <!-- Descripcion -->
                 <p class="hero-description">Adoptar es más que dar un hogar; es regalar segundas oportunidades.
                     Cada mascota adoptada deja atrás el abandono y encuentra amor incondicional. Y en el
                     proceso, nuestras vidas se llenan de alegría, compañía y gratitud infinita. ¡Crea felicidad
                     salvando vidas! 🐾❤️</p>
 
+                <!-- Estadisticas -->
                 <div class="hero-stats">
 
                     <div class="hero-stat">
@@ -118,14 +128,18 @@
         </section>
 
         <section id="gallery" class="gallery">
+            <!-- Contenido de la segunda sección -->
             <div class="gallery-container">
 
+                <!-- Botones para filtrar por categoria -->
                 <div class="category-buttons">
                     <button class="category-button">Gatos</button>
                     <button class="category-button">Perros</button>
                 </div>
 
+                <!-- Galeria de imagenes -->
                 <div class="gallery-images">
+                    <!-- cada item de la galeria tiene su contenedor -->
                     <div class="gallery-item dog">
                         <div class="pet-description">
                             <img src="./assets/dogs/alvan-nee-brFsZ7qszSY-unsplash.jpg" class="" alt="Perro 1">
@@ -230,8 +244,6 @@
         <section id="cares" class="cares"></section>
         <section id="contact" class="contact"></section>
 
-
-
         <section id="contact" class="contact-section">
             <div class="contact-container">
                 <!-- Mapa -->
@@ -260,7 +272,7 @@
                             <label for="phone">Celular</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
-
+                        <!-- Tipo de proceso -->
                         <div class="input-group">
                             <label for="processType">Tipo de Proceso</label>
                             <select id="processType" name="processType" required>
@@ -269,7 +281,7 @@
                                 <option value="Visita">Visita</option>
                             </select>
                         </div>
-
+                        <!-- Boton de envio -->
                         <button type="submit" class="submit-button">Enviar</button>
                     </form>
                 </div>
@@ -283,9 +295,6 @@
                 <img id="modalImage" src="" alt="Imagen de donación" style="width:100%;">
             </div>
         </div>
-
-
-
 
         <!-- Footer -->
         <footer class="footer">
@@ -334,7 +343,6 @@
                 </div>
             </div>
         </footer>
-
 
     </div>
 
