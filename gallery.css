@@ -62,6 +62,7 @@
     justify-content: center;
     align-items: center;
     gap: 4rem;
+    width: 90%;
 }
 
 .gallery-item {
@@ -75,11 +76,13 @@
     padding: 2rem;
     border-radius: 2rem;
     transition: transform 0.3s ease-in-out;
+    width: 290px;
+    height: 450px;
 }
 
 .gallery-item img {
-    width: 380px;
-    height: 450px;
+    width: 250px;
+    height: 300px;
     object-fit: cover;
     border-radius: 2rem;
     padding: 1rem;
@@ -91,19 +94,20 @@
 
 .pet-description {
     margin: 0 auto;
+    line-height: 1rem;
 }
 
 .pet-description p{
     color: white;
     margin-left: 2rem;
-    font-size: 2.7rem;
+    font-size: 1.8rem;
     margin: 0 auto;
     padding: 1rem;
 }
 
 .pet-description span {
     font-weight: bold;
-    font-size: 2.8rem;
+    font-size: 1.9rem;
 }
 
 @media (max-width: 576px) {
@@ -174,8 +178,8 @@
     .gallery-images {
         gap: 2rem;
     }
-    
-    .gallery-item {
+
+    /* .gallery-item {
         width: 290px;
         height: 450px;
     }
@@ -183,6 +187,17 @@
     .gallery-item img {
         width: 250px;
         height: 300px;
+    } */
+    
+    .gallery-item {
+        width: 235px;
+        height: 380px;
+        padding: 1.5rem;
+    }
+    
+    .gallery-item img {
+        width: 205px;
+        height: 260px;
     }
     
     .gallery-item:hover {
@@ -190,13 +205,13 @@
     }
     
     .pet-description p{
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         margin: 0 auto;
-        line-height: 1rem;
+        line-height: 0.8rem;
     }
     
     .pet-description span {
         font-weight: bold;
-        font-size: 1.9rem;
+        font-size: 1.5rem;
     }
 }
