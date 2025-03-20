@@ -1,10 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuToggle = document.getElementById("menu-toggle");
+document.addEventListener("DOMContentLoaded", function () { // Espera a que el DOM este cargado
+
+  // Menú de hamburguesa
+  const menuToggle = document.getElementById("menu-toggle"); 
   const menu = document.getElementById("menu");
   const menuLinks = document.querySelectorAll(".menu a");
 
+  // Abre y cierra el menú
   menuToggle.addEventListener("click", function () {
-    menu.classList.toggle("active");
+    menu.classList.toggle("active"); // Agrega la clase "active" a la clase .menu para mostrar el menú
   });
 
   // Cierra el menú cuando se hace clic en un enlace
@@ -14,9 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Botones para filtrar por categoría
   const categoryButtons = document.querySelectorAll(".category-button");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
+  // Función para mostrar solo las imagenes de la categoría seleccionada
   function showCategory(category) {
       galleryItems.forEach(item => {
           item.style.display = item.classList.contains(category) ? "block" : "none";
@@ -26,24 +31,24 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mostrar inicialmente solo los perros
   showCategory("cat");
 
-  categoryButtons.forEach(button => {
+  categoryButtons.forEach(button => { // Agrega un evento de clic a cada botón
       button.addEventListener("click", function () {
           let category;
-          const text = this.textContent.toLowerCase();
+          const text = this.textContent.toLowerCase(); // Obtiene el texto del botón
           if (text === "perros") {
               category = "dog";
           } else if (text === "gatos") {
               category = "cat";
           }
-          showCategory(category);
+          showCategory(category); // Muestra solo las imagenes de la categoría seleccionada
       });
   });
 });
 
 // Función para abrir el modal y mostrar la imagen correspondiente
 function openModal(type) {
-  const modal = document.getElementById('myModal');
-  const modalImage = document.getElementById('modalImage');
+  const modal = document.getElementById('myModal'); // Obtiene el modal
+  const modalImage = document.getElementById('modalImage'); // Obtiene la imagen dentro del modal
 
   // Cambia la imagen según el botón presionado
   if (type === 'nequi') {

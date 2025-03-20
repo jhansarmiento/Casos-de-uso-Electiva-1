@@ -1,5 +1,6 @@
 /* Estilos del navbar */
 nav {
+  /* Contenedor del navbar */
   position: fixed; /* Fija el navbar sobre el fondo */
   top: 2rem; /* Espaciado desde arriba */
   left: 50%;
@@ -44,6 +45,7 @@ nav button a {
 }
 
 .logo-container {
+  /* Contenedor del logo */
   display: flex;
   align-items: center;
   gap: 2.5rem;
@@ -51,6 +53,7 @@ nav button a {
 }
 
 .logo-container img {
+  /* Logo Imagen*/
   width: 5.2rem;
   height: 5.2rem;
 }
