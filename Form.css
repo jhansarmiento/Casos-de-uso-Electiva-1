@@ -455,3 +455,39 @@ input[name="card-cvv"],
     }
 }
 
+.sponsor-type-options {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.radio-option, .checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.radio-option label, .checkbox-option label {
+    color: white;
+    font-size: 1rem;
+}
+
+.valor-apadrinamiento {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+.monto-total {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+}
+
+.monto-total span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+

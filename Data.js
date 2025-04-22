@@ -126,19 +126,21 @@ const animalesData = [
   // Mascotas para apadrinar - Perros
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar1.jpg",
-    nombre: "Lucas",
+    nombre: "Maximo",
+    edad: "5 años",
     tipo: "perro",
     categoria: "apadrinar",
-    edad: "5 años",
-    necesidad: "Requiere tratamiento para problemas de cadera"
+    necesidad: "Tratamiento mensual para la piel y vitaminas especiales",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar2.jpg",
-    nombre: "Toby",
+    nombre: "Moon",
     tipo: "perro",
     categoria: "apadrinar",
-    edad: "8 años",
-    necesidad: "Necesita medicación continua para problemas cardíacos"
+    edad: "3 años",
+    necesidad: "Alimento especial y medicamentos para las articulaciones",
+    valorMensual: 45000
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar3.jpg",
@@ -146,7 +148,8 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "4 años",
-    necesidad: "Recuperación de cirugía por accidente"
+    necesidad: "Recuperación de cirugía por accidente",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar4.jpg",
@@ -154,7 +157,8 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "6 años",
-    necesidad: "Tratamiento para problemas de piel"
+    necesidad: "Tratamiento para problemas de piel",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar5.jpg",
@@ -162,7 +166,8 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "9 años",
-    necesidad: "Cuidados especiales por edad avanzada"
+    necesidad: "Cuidados especiales por edad avanzada",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar6.jpg",
@@ -170,17 +175,19 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "3 años",
-    necesidad: "Rehabilitación física por lesión en pata"
+    necesidad: "Rehabilitación física por lesión en pata",
+    valorMensual: 50000
   },
 
   // Mascotas para apadrinar - Gatos
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar1.jpg",
-    nombre: "Misha",
+    nombre: "Millow",
+    edad: "2 años",
     tipo: "gato",
     categoria: "apadrinar",
-    edad: "7 años",
-    necesidad: "Tratamiento para diabetes"
+    necesidad: "Dieta especial y suplementos vitamínicos",
+    valorMensual: 40000
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar2.jpg",
@@ -188,15 +195,17 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "2 años",
-    necesidad: "Recuperación de cirugía ocular"
+    necesidad: "Recuperación de cirugía ocular",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar3.jpg",
-    nombre: "Nala",
+    nombre: "Aslan",
     tipo: "gato",
     categoria: "apadrinar",
     edad: "10 años",
-    necesidad: "Cuidados especiales por edad avanzada "
+    necesidad: "Cuidados especiales por edad avanzada",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar4.jpg",
@@ -204,7 +213,8 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "5 años",
-    necesidad: "Tratamiento para problemas respiratorios"
+    necesidad: "Tratamiento para problemas respiratorios",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar5.jpg",
@@ -212,7 +222,8 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "4 años",
-    necesidad: "Medicación para condición cardíaca"
+    necesidad: "Medicación para condición cardíaca",
+    valorMensual: 50000
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar6.jpg",
@@ -220,7 +231,8 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "6 años",
-    necesidad: "Tratamiento dental especializado"
+    necesidad: "Tratamiento dental especializado",
+    valorMensual: 50000
   }
 ];
 

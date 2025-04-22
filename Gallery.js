@@ -73,42 +73,68 @@ function initGallery(animalesData) {
 
 function createModal(pet) {
     const modalContent = document.querySelector('.modal-content');
+    
+    // Formatear el valor mensual si existe
+    const valorFormateado = pet.categoria === 'apadrinar' ? new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(pet.valorMensual) : '';
+
     modalContent.innerHTML = `
-        <!-- ... resto del código del modal ... -->
-        ${pet.categoria === 'adopcion' 
-            ? `<button class="modal-action-button adopt-button" data-category="adopcion" data-pet-name="${pet.nombre}" data-pet-type="${pet.tipo}">
-                 Adoptar a ${pet.nombre}
-               </button>`
-            : `<button class="modal-action-button sponsor-button" data-category="apadrinar" data-pet-name="${pet.nombre}" data-pet-type="${pet.tipo}">
-                 Apadrinar a ${pet.nombre}
-               </button>`
-        }
-        <!-- ... resto del código del modal ... -->
+        <span class="close-button">&times;</span>
+        <div class="modal-image">
+            <img src="${pet.imagen}" alt="${pet.nombre}">
+        </div>
+        <div class="modal-info">
+            <h2>${pet.nombre}</h2>
+            <div class="pet-details">
+                <p><strong>Edad:</strong> ${pet.edad}</p>
+                <p><strong>Tamaño:</strong> ${pet.tamaño}</p>
+                <p><strong>Personalidad:</strong> ${pet.personalidad}</p>
+                <p><strong>Nivel de Energía:</strong> ${pet.energia}</p>
+                ${pet.categoria === 'apadrinar' ? `
+                    <p><strong>Necesidades:</strong> ${pet.necesidades}</p>
+                    <p class="valor-mensual"><strong>Valor del Apadrinamiento:</strong> ${valorFormateado} mensuales</p>
+                ` : ''}
+            </div>
+            ${pet.categoria === 'adopcion' 
+                ? `<button class="modal-action-button adopt-button" data-category="adopcion" data-pet-name="${pet.nombre}" data-pet-type="${pet.tipo}">
+                     Adoptar a ${pet.nombre}
+                   </button>`
+                : `<button class="modal-action-button sponsor-button" data-category="apadrinar" data-pet-name="${pet.nombre}" data-pet-type="${pet.tipo}" data-valor="${pet.valorMensual}">
+                     Apadrinar a ${pet.nombre}
+                   </button>`
+            }
+        </div>
     `;
 
-    // Event listener para el botón de acción
+    // Agregar los event listeners del modal
+    const closeButton = modalContent.querySelector('.close-button');
     const actionButton = modalContent.querySelector('.modal-action-button');
-    actionButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Obtener los datos de la mascota
-        const category = pet.categoria; // Usar directamente la categoría de la mascota
-        const petName = pet.nombre;
-        const petType = pet.tipo;
-
-        // Cerrar el modal
+    
+    closeButton.onclick = function() {
         document.querySelector('.modal').style.display = 'none';
+    };
 
-        // Navegar al formulario
+    actionButton.addEventListener('click', function() {
+        const category = this.dataset.category;
+        const petName = this.dataset.petName;
+        const petType = this.dataset.petType;
+        const valor = this.dataset.valor;
+
+        document.querySelector('.modal').style.display = 'none';
         const formSection = document.getElementById('form');
         formSection.scrollIntoView({ behavior: 'smooth' });
 
-        // Disparar el evento con los datos actualizados
+        // Disparar evento con todos los datos necesarios
         const formUpdateEvent = new CustomEvent('updateFormSelection', {
             detail: {
-                category: category,
-                petName: petName,
-                petType: petType
+                category,
+                petName,
+                petType,
+                valor: Number(valor)
             }
         });
         document.dispatchEvent(formUpdateEvent);

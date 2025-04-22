@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sponsorFields = document.querySelector('.sponsor-fields');
     let currentFormType = 'adopcion';
     let animalesDataCache = null;
+    let valorMascotaSeleccionada = 0;
     
     // Objeto con las funciones de validación
     const validaciones = {
@@ -152,6 +153,9 @@ document.addEventListener('DOMContentLoaded', function() {
     formTypeButtons.forEach(button => {
         button.addEventListener('click', function() {
             changeFormType(this.dataset.form);
+            if (this.dataset.form === 'apadrinar') {
+                actualizarMonto();
+            }
         });
     });
 
@@ -181,10 +185,29 @@ document.addEventListener('DOMContentLoaded', function() {
         await actualizarImagenMascota();
     }
 
-    // Escuchar el evento personalizado desde la galería
+    // Escuchar el evento de selección desde la galería
     document.addEventListener('updateFormSelection', async function(event) {
-        const { category, petName, petType } = event.detail;
-        await selectPetAndType(petType, petName, category);
+        const { category, petName, petType, valor } = event.detail;
+        console.log("Datos recibidos:", { category, petName, petType, valor }); // Para debugging
+        
+        // Actualizar el valor de la mascota seleccionada
+        valorMascotaSeleccionada = valor;
+        
+        // Cambiar el tipo de formulario
+        changeFormType(category);
+        
+        // Esperar un momento para que se actualice la interfaz
+        setTimeout(async () => {
+            await selectPetAndType(petType, petName, category);
+            if (category === 'apadrinar') {
+                // Seleccionar el pago mensual por defecto
+                const pagoMensual = document.getElementById('pago-mensual');
+                if (pagoMensual) {
+                    pagoMensual.checked = true;
+                }
+                actualizarMonto();
+            }
+        }, 100);
     });
 
     // Función para actualizar las mascotas disponibles
@@ -251,6 +274,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Agregar estilos de transición a la imagen
     formImage.style.transition = 'opacity 0.3s ease-in-out';
+
+    // Función para formatear moneda
+    function formatCurrency(value) {
+        return new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(value);
+    }
+
+    // Función para actualizar el monto a pagar
+    function actualizarMonto() {
+        const tipoApadrinamiento = document.querySelector('input[name="tipo-apadrinamiento"]:checked')?.value;
+        const montoSpan = document.querySelector('.monto-total span');
+        
+        if (!montoSpan) return;
+
+        let montoFinal = 0;
+        if (tipoApadrinamiento === 'unico') {
+            montoFinal = valorMascotaSeleccionada * 12;
+        } else if (tipoApadrinamiento === 'mensual') {
+            montoFinal = valorMascotaSeleccionada;
+        }
+
+        montoSpan.textContent = formatCurrency(montoFinal);
+        console.log("Monto actualizado:", montoFinal); // Para debugging
+    }
+
+    // Event listeners para el tipo de apadrinamiento
+    document.querySelectorAll('input[name="tipo-apadrinamiento"]').forEach(radio => {
+        radio.addEventListener('change', actualizarMonto);
+    });
+
+    // Actualizar la función de selección de mascota
+    async function actualizarMascotaSeleccionada() {
+        const mascotaSelect = document.getElementById('mascota');
+        const nombreMascota = mascotaSelect.value;
+
+        if (nombreMascota && currentFormType === 'apadrinar') {
+            const { default: animalesData } = await import('./data.js');
+            const mascotaSeleccionada = animalesData.find(
+                animal => animal.nombre === nombreMascota && animal.categoria === 'apadrinar'
+            );
+            
+            if (mascotaSeleccionada) {
+                console.log("Mascota seleccionada:", mascotaSeleccionada); // Para debugging
+                valorMascotaSeleccionada = mascotaSeleccionada.valorMensual;
+                actualizarMonto();
+            }
+        }
+    }
+
+    // Event listener para la selección de mascota
+    document.getElementById('mascota').addEventListener('change', actualizarMascotaSeleccionada);
 
     // Función para validar el formulario según la categoría
     function validateForm() {
@@ -327,6 +405,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('El CVV debe tener 3 dígitos');
                 return false;
             }
+
+            // Validar tipo de apadrinamiento
+            if (!document.querySelector('input[name="tipo-apadrinamiento"]:checked')) {
+                alert('Por favor selecciona un tipo de apadrinamiento');
+                return false;
+            }
         }
 
         return true;
@@ -337,24 +421,22 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         
         if (validateForm()) {
-            // Mostrar el modal de éxito con mensaje personalizado según la categoría
-            const modal = document.querySelector('.success-modal');
-            const modalMessage = modal.querySelector('p');
-            
-            if (currentFormType === 'adopcion') {
-                modalMessage.textContent = 'Gracias por tu interés en adoptar. Nos pondremos en contacto contigo pronto.';
-            } else {
-                modalMessage.textContent = 'Gracias por tu interés en apadrinar. Nos pondremos en contacto contigo pronto.';
-            }
+            const formData = {
+                tipoFormulario: currentFormType,
+                // ... otros campos ...
+                tipoApadrinamiento: currentFormType === 'apadrinar' ? 
+                    document.querySelector('input[name="tipo-apadrinamiento"]:checked').value : null,
+                recibirActualizaciones: document.getElementById('recibir-actualizaciones')?.checked,
+                montoAPagar: currentFormType === 'apadrinar' ? 
+                    document.querySelector('.monto-total span').textContent : null
+            };
 
+            console.log('Datos del formulario:', formData);
             showSuccessModal();
-            
-            // Resetear el formulario y la imagen
             form.reset();
             formImage.src = defaultImage;
-            
-            // Deshabilitar el selector de mascota
             document.getElementById('mascota').disabled = true;
+            document.querySelector('.monto-total span').textContent = '$0';
         }
     }
 
