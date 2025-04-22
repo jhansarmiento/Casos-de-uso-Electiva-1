@@ -140,8 +140,8 @@
 }
 
 .error-message {
-    color: #ff6b6b;
-    font-size: 0.875rem;
+    color: #f85757;
+    font-size: 1.2rem;
     margin-top: 0.25rem;
     font-family: 'Rubik', sans-serif;
     transition: all 0.3s ease;
@@ -167,8 +167,7 @@
 }
 
 .form-group.error input,
-.form-group.error select,
-.form-group.error textarea {
+.form-group.error select {
     border-color: #ff6b6b;
     background-color: rgba(255, 107, 107, 0.1);
 }
@@ -324,15 +323,135 @@
 }
 
 .success-content h3 {
-    font-size: 1.5rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
     font-family: 'Rubik', sans-serif;
 }
 
 .success-content p {
-    font-size: 1.1rem;
+    font-size: 2rem;
     opacity: 0.9;
     margin-bottom: 0;
     font-family: 'Rubik', sans-serif;
+}
+
+/* Estilos para el selector de tipo de formulario */
+
+.form-type-selector {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-type-button {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-type-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.form-type-button.active {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(208, 208, 208, 0.37);
+    transform: translateY(-2px);
+}
+
+.card-details {
+    display: flex;
+    gap: 2rem;
+}
+
+.card-expiry, .card-cvv {
+    flex: 1;
+}
+
+.expiry-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.expiry-inputs input {
+    width: 50px;
+    text-align: center;
+}
+
+.expiry-inputs span {
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Estilos para campos de tarjeta */
+input[name="card-number"],
+input[name="card-cvv"],
+.expiry-inputs input {
+    font-family: monospace;
+    letter-spacing: 0.1em;
+}
+
+.success-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-modal-content {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    max-width: 400px;
+    width: 90%;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 }
 

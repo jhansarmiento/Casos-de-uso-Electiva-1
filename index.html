@@ -110,8 +110,14 @@
 
         <section id="gallery" class="gallery">
             <div class="gallery-container">
-                <!-- Botones para filtrar por categoria -->
-                <div class="category-buttons">
+                <!-- Botones para filtrar por categoría -->
+                <div class="category-buttons main-category">
+                    <button class="category-button active" data-categoria="adopcion">Adoptar</button>
+                    <button class="category-button" data-categoria="apadrinar">Apadrinar</button>
+                </div>
+
+                <!-- Botones para filtrar por tipo de mascota -->
+                <div class="category-buttons pet-type">
                     <button class="category-button active" data-tipo="perro">Perros</button>
                     <button class="category-button" data-tipo="gato">Gatos</button>
                 </div>
@@ -134,12 +140,8 @@
                     <div class="modal-pet-details">
                         <h2 id="modal-pet-name"></h2>
                         <div class="pet-info-container">
-                            <p><span>Edad:</span> <span id="modal-pet-age"> </span></p>
-                            <p><span>Tamaño:</span> <span id="modal-pet-size"> </span></p>
-                            <p><span>Personalidad:</span> <span id="modal-pet-personality"> </span></p>
-                            <p><span>Nivel de Energía:</span> <span id="modal-pet-energy"> </span></p>
+                            <!-- El contenido dinámico irá aquí -->
                         </div>
-                        <button id="adopt-button" class="adopt-button">Adoptar a <span id="pet-name-button"></span></button>
                     </div>
                 </div>
             </div>
@@ -151,11 +153,18 @@
                     <img src="./assets/dogs_and_cats/Family3.webp" alt="Familia con mascotas">
                 </div>
                 <div class="form-content">
-                    <h2>Formulario de Adopción</h2>
-                    <p class="form-description">Por favor, completa el siguiente formulario para iniciar el proceso de adopción.</p>
+                    <h2>Formulario de Solicitud</h2>
+                    
+                    <!-- Selector de tipo de formulario -->
+                    <div class="form-type-selector">
+                        <button type="button" class="form-type-button active" data-form="adopcion">Adopción</button>
+                        <button type="button" class="form-type-button" data-form="apadrinar">Apadrinamiento</button>
+                    </div>
+
+                    <p class="form-description">Por favor, completa el siguiente formulario.</p>
                     
                     <form id="adoption-form" class="adoption-form" novalidate>
-                        <!-- Información Personal -->
+                        <!-- Campos comunes -->
                         <div class="form-group">
                             <label for="nombre">Nombre Completo *</label>
                             <input type="text" id="nombre" name="nombre" required>
@@ -174,13 +183,7 @@
                             <span class="error-message"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="direccion">Dirección *</label>
-                            <input id="direccion" name="direccion" required>
-                            <span class="error-message"></span>
-                        </div>
-
-                        <!-- Selección de Mascota -->
+                        <!-- Selección de mascota -->
                         <div class="form-group">
                             <label for="tipo-mascota">Tipo de Mascota *</label>
                             <select id="tipo-mascota" name="tipo-mascota" required>
@@ -192,52 +195,87 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="mascota">Mascota que deseas adoptar *</label>
+                            <label for="mascota">Mascota *</label>
                             <select id="mascota" name="mascota" required disabled>
                                 <option value="">Primero selecciona un tipo de mascota</option>
                             </select>
                             <span class="error-message"></span>
                         </div>
 
-                        <!-- Preguntas de Evaluación -->
-                        <div class="form-group">
-                            <label for="experiencia">¿Tienes experiencia con mascotas? *</label>
-                            <select id="experiencia" name="experiencia" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="si">Sí</option>
-                                <option value="no">No</option>
-                            </select>
-                            <span class="error-message"></span>
+                        <!-- Campos específicos para adopción -->
+                        <div class="adoption-fields">
+                            <div class="form-group">
+                                <label for="direccion">Dirección *</label>
+                                <input id="direccion" name="direccion" required></textarea>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experiencia">¿Tienes experiencia con mascotas? *</label>
+                                <select id="experiencia" name="experiencia" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="si">Sí</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="presupuesto">¿Cuentas con el presupuesto necesario? *</label>
+                                <select id="presupuesto" name="presupuesto" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="si">Sí</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tiempo">¿Tienes disponibilidad de tiempo? *</label>
+                                <select id="tiempo" name="tiempo" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="si">Sí</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="espacio">¿Cuentas con el espacio adecuado? *</label>
+                                <select id="espacio" name="espacio" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="si">Sí</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="presupuesto">¿Cuentas con el presupuesto necesario para mantener una mascota? *</label>
-                            <select id="presupuesto" name="presupuesto" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="si">Sí</option>
-                                <option value="no">No</option>
-                            </select>
-                            <span class="error-message"></span>
-                        </div>
+                        <!-- Campos específicos para apadrinamiento -->
+                        <div class="sponsor-fields" style="display: none;">
+                            <div class="form-group">
+                                <label for="card-number">Número de Tarjeta *</label>
+                                <input type="text" id="card-number" name="card-number" maxlength="16" required>
+                                <span class="error-message"></span>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="tiempo">¿Tienes disponibilidad de tiempo para cuidar una mascota? *</label>
-                            <select id="tiempo" name="tiempo" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="si">Sí</option>
-                                <option value="no">No</option>
-                            </select>
-                            <span class="error-message"></span>
-                        </div>
+                            <div class="form-group card-details">
+                                <div class="card-expiry">
+                                    <label for="card-expiry">Fecha de Expiración *</label>
+                                    <div class="expiry-inputs">
+                                        <input type="text" id="card-expiry-month" name="card-expiry-month" placeholder="MM" maxlength="2" required>
+                                        <span>/</span>
+                                        <input type="text" id="card-expiry-year" name="card-expiry-year" placeholder="YY" maxlength="2" required>
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="espacio">¿Cuentas con el espacio adecuado para una mascota? *</label>
-                            <select id="espacio" name="espacio" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="si">Sí</option>
-                                <option value="no">No</option>
-                            </select>
-                            <span class="error-message"></span>
+                                <div class="card-cvv">
+                                    <label for="card-cvv">CVV *</label>
+                                    <input type="text" id="card-cvv" name="card-cvv" maxlength="3" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
                         </div>
 
                         <button type="submit" class="submit-button">Enviar Solicitud</button>
@@ -249,6 +287,15 @@
                             <div class="success-icon">✓</div>
                             <h3>¡Solicitud Enviada!</h3>
                             <p>Tu solicitud de adopción ha sido recibida correctamente.</p>
+                        </div>
+                    </div>
+
+                    <!-- Agregar esto justo después del cierre del form-container -->
+                    <div class="success-modal" style="display: none;">
+                        <div class="success-modal-content">
+                            <div class="success-icon">✓</div>
+                            <h3>¡Solicitud Enviada!</h3>
+                            <p>Gracias por tu interés. Nos pondremos en contacto contigo pronto.</p>
                         </div>
                     </div>
                 </div>

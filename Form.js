@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('adoption-form');
     const formImage = document.querySelector('.form-image img');
     const defaultImage = './assets/dogs_and_cats/Family3.webp';
+    const formTypeButtons = document.querySelectorAll('.form-type-button');
+    const adoptionFields = document.querySelector('.adoption-fields');
+    const sponsorFields = document.querySelector('.sponsor-fields');
+    let currentFormType = 'adopcion';
+    let animalesDataCache = null;
     
     // Objeto con las funciones de validación
     const validaciones = {
@@ -49,6 +54,30 @@ document.addEventListener('DOMContentLoaded', function() {
         'mascota': (value) => {
             if (!value) return 'Por favor, selecciona una mascota';
             return '';
+        },
+        'card-number': (value) => {
+            if (!value) return 'El número de tarjeta es requerido';
+            if (!/^\d{16}$/.test(value)) return 'El número de tarjeta debe tener 16 dígitos';
+            return '';
+        },
+        'card-expiry-month': (value) => {
+            if (!value) return 'El mes es requerido';
+            const month = parseInt(value);
+            if (!/^\d{2}$/.test(value) || month < 1 || month > 12) return 'Mes inválido';
+            return '';
+        },
+        'card-expiry-year': (value) => {
+            if (!value) return 'El año es requerido';
+            if (!/^\d{2}$/.test(value)) return 'Año inválido';
+            const currentYear = new Date().getFullYear() % 100;
+            const year = parseInt(value);
+            if (year < currentYear) return 'La tarjeta está vencida';
+            return '';
+        },
+        'card-cvv': (value) => {
+            if (!value) return 'El CVV es requerido';
+            if (!/^\d{3}$/.test(value)) return 'El CVV debe tener 3 dígitos';
+            return '';
         }
     };
 
@@ -91,111 +120,286 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Función para cargar las mascotas según el tipo
-    async function cargarMascotas(tipo) {
-        try {
-            const { default: animalesData } = await import('./data.js');
-            const mascotasSelect = document.getElementById('mascota');
-            const mascotasFiltradas = animalesData.filter(animal => animal.tipo === tipo);
+    // Función para cambiar el tipo de formulario
+    function changeFormType(category) {
+        currentFormType = category; // Actualizar el tipo de formulario actual
+        
+        // Actualizar la UI de los botones
+        formTypeButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.form === category) {
+                btn.classList.add('active');
+            }
+        });
 
-            // Limpiar el select de mascotas
-            mascotasSelect.innerHTML = '<option value="">Selecciona una mascota</option>';
+        // Mostrar/ocultar campos según el tipo
+        if (category === 'adopcion') {
+            adoptionFields.style.display = 'block';
+            sponsorFields.style.display = 'none';
+        } else {
+            adoptionFields.style.display = 'none';
+            sponsorFields.style.display = 'block';
+        }
+
+        // Resetear la imagen al cambiar de tipo de formulario
+        formImage.src = defaultImage;
+        
+        // Actualizar las mascotas disponibles
+        actualizarMascotasDisponibles();
+    }
+
+    // Event listeners para los botones de tipo de formulario
+    formTypeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            changeFormType(this.dataset.form);
+        });
+    });
+
+    // Función para cargar los datos de animales
+    async function loadAnimalesData() {
+        if (!animalesDataCache) {
+            const { default: data } = await import('./data.js');
+            animalesDataCache = data;
+        }
+        return animalesDataCache;
+    }
+
+    // Función para seleccionar tipo de mascota y mascota específica
+    async function selectPetAndType(petType, petName, category) {
+        const tipoMascotaSelect = document.getElementById('tipo-mascota');
+        const mascotaSelect = document.getElementById('mascota');
+
+        // Primero cambiar la categoría
+        changeFormType(category);
+
+        // Luego seleccionar el tipo de mascota
+        tipoMascotaSelect.value = petType;
+        await actualizarMascotasDisponibles();
+
+        // Finalmente seleccionar la mascota específica
+        mascotaSelect.value = petName;
+        await actualizarImagenMascota();
+    }
+
+    // Escuchar el evento personalizado desde la galería
+    document.addEventListener('updateFormSelection', async function(event) {
+        const { category, petName, petType } = event.detail;
+        await selectPetAndType(petType, petName, category);
+    });
+
+    // Función para actualizar las mascotas disponibles
+    async function actualizarMascotasDisponibles() {
+        try {
+            const animalesData = await loadAnimalesData();
+            const tipoMascotaSelect = document.getElementById('tipo-mascota');
+            const mascotaSelect = document.getElementById('mascota');
+            const tipo = tipoMascotaSelect.value;
             
-            // Agregar las mascotas filtradas
+            if (!tipo) {
+                mascotaSelect.disabled = true;
+                mascotaSelect.innerHTML = '<option value="">Primero selecciona un tipo de mascota</option>';
+                formImage.src = defaultImage;
+                return;
+            }
+
+            const mascotasFiltradas = animalesData.filter(animal => 
+                animal.tipo === tipo && animal.categoria === currentFormType
+            );
+
+            mascotaSelect.innerHTML = '<option value="">Selecciona una mascota</option>';
             mascotasFiltradas.forEach(mascota => {
                 const option = document.createElement('option');
                 option.value = mascota.nombre;
                 option.textContent = mascota.nombre;
-                // Guardar la imagen en el dataset del option
-                option.dataset.imagen = mascota.imagen;
-                mascotasSelect.appendChild(option);
+                mascotaSelect.appendChild(option);
             });
 
-            // Habilitar el select de mascotas
-            mascotasSelect.disabled = false;
-
-            // Restaurar imagen por defecto cuando se cambia el tipo
-            formImage.src = defaultImage;
-            animateImageChange(formImage);
+            mascotaSelect.disabled = false;
         } catch (error) {
             console.error('Error al cargar las mascotas:', error);
         }
     }
 
-    // Función para animar el cambio de imagen
-    function animateImageChange(imgElement) {
-        imgElement.style.opacity = '0';
-        setTimeout(() => {
-            imgElement.style.opacity = '1';
-        }, 300);
+    // Función para actualizar la imagen según la mascota seleccionada
+    async function actualizarImagenMascota() {
+        const animalesData = await loadAnimalesData();
+        const mascotaSelect = document.getElementById('mascota');
+        const nombreMascota = mascotaSelect.value;
+
+        if (!nombreMascota) {
+            formImage.src = defaultImage;
+            return;
+        }
+
+        const mascotaSeleccionada = animalesData.find(
+            animal => animal.nombre === nombreMascota && animal.categoria === currentFormType
+        );
+
+        if (mascotaSeleccionada) {
+            // Aplicar transición suave
+            formImage.style.opacity = '0';
+            setTimeout(() => {
+                formImage.src = mascotaSeleccionada.imagen;
+                formImage.style.opacity = '1';
+            }, 300);
+        }
     }
 
-    // Manejar el cambio en el tipo de mascota
-    const tipoMascotaSelect = document.getElementById('tipo-mascota');
-    const mascotaSelect = document.getElementById('mascota');
+    // Event listeners para los selectores
+    document.getElementById('tipo-mascota').addEventListener('change', actualizarMascotasDisponibles);
+    document.getElementById('mascota').addEventListener('change', actualizarImagenMascota);
 
-    tipoMascotaSelect.addEventListener('change', function() {
-        if (this.value) {
-            cargarMascotas(this.value);
-        } else {
-            mascotaSelect.innerHTML = '<option value="">Primero selecciona un tipo de mascota</option>';
-            mascotaSelect.disabled = true;
-            // Restaurar imagen por defecto
-            formImage.src = defaultImage;
-            animateImageChange(formImage);
+    // Agregar estilos de transición a la imagen
+    formImage.style.transition = 'opacity 0.3s ease-in-out';
+
+    // Función para validar el formulario según la categoría
+    function validateForm() {
+        const commonFields = [
+            'nombre',
+            'email',
+            'telefono',
+            'tipo-mascota',
+            'mascota'
+        ];
+
+        const adoptionFields = [
+            'direccion',
+            'experiencia',
+            'presupuesto',
+            'tiempo',
+            'espacio'
+        ];
+
+        const sponsorFields = [
+            'card-number',
+            'card-expiry-month',
+            'card-expiry-year',
+            'card-cvv'
+        ];
+
+        // Validar campos comunes
+        for (const fieldId of commonFields) {
+            const field = document.getElementById(fieldId);
+            if (!field.value) {
+                field.reportValidity();
+                return false;
+            }
         }
-    });
 
-    // Manejar el cambio de mascota seleccionada
-    mascotaSelect.addEventListener('change', function() {
-        const selectedOption = this.options[this.selectedIndex];
-        if (selectedOption && selectedOption.dataset.imagen) {
-            formImage.src = selectedOption.dataset.imagen;
-            animateImageChange(formImage);
-        } else {
-            formImage.src = defaultImage;
-            animateImageChange(formImage);
+        // Validar campos específicos según la categoría
+        const fieldsToValidate = currentFormType === 'adopcion' ? adoptionFields : sponsorFields;
+        
+        for (const fieldId of fieldsToValidate) {
+            const field = document.getElementById(fieldId);
+            if (!field.value) {
+                field.reportValidity();
+                return false;
+            }
         }
-    });
 
-    // Manejo del envío del formulario
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        let hayErrores = false;
+        // Validaciones específicas para tarjeta de crédito en caso de apadrinamiento
+        if (currentFormType === 'apadrinar') {
+            const cardNumber = document.getElementById('card-number').value;
+            const cardMonth = document.getElementById('card-expiry-month').value;
+            const cardYear = document.getElementById('card-expiry-year').value;
+            const cardCVV = document.getElementById('card-cvv').value;
 
-        // Validar todos los campos
-        form.querySelectorAll('input, select, textarea').forEach(input => {
-            const validacion = validaciones[input.name];
-            if (validacion) {
-                const error = validacion(input.value);
-                if (error) {
-                    mostrarError(input, error);
-                    hayErrores = true;
-                } else {
-                    limpiarError(input);
-                }
+            // Validar número de tarjeta (16 dígitos)
+            if (!/^\d{16}$/.test(cardNumber)) {
+                alert('El número de tarjeta debe tener 16 dígitos');
+                return false;
+            }
+
+            // Validar mes (01-12)
+            if (!/^(0[1-9]|1[0-2])$/.test(cardMonth)) {
+                alert('El mes debe estar entre 01 y 12');
+                return false;
+            }
+
+            // Validar año (2 dígitos)
+            if (!/^\d{2}$/.test(cardYear)) {
+                alert('El año debe tener 2 dígitos');
+                return false;
+            }
+
+            // Validar CVV (3 dígitos)
+            if (!/^\d{3}$/.test(cardCVV)) {
+                alert('El CVV debe tener 3 dígitos');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // Función para manejar el envío del formulario
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        if (validateForm()) {
+            // Mostrar el modal de éxito con mensaje personalizado según la categoría
+            const modal = document.querySelector('.success-modal');
+            const modalMessage = modal.querySelector('p');
+            
+            if (currentFormType === 'adopcion') {
+                modalMessage.textContent = 'Gracias por tu interés en adoptar. Nos pondremos en contacto contigo pronto.';
+            } else {
+                modalMessage.textContent = 'Gracias por tu interés en apadrinar. Nos pondremos en contacto contigo pronto.';
+            }
+
+            showSuccessModal();
+            
+            // Resetear el formulario y la imagen
+            form.reset();
+            formImage.src = defaultImage;
+            
+            // Deshabilitar el selector de mascota
+            document.getElementById('mascota').disabled = true;
+        }
+    }
+
+    // Función para mostrar el modal de éxito
+    function showSuccessModal() {
+        const modal = document.querySelector('.success-modal');
+        modal.style.display = 'flex';
+        
+        // Esperar 5 segundos y luego ocultar el modal con animación
+        setTimeout(() => {
+            const modalContent = modal.querySelector('.success-modal-content');
+            modalContent.style.animation = 'modalFadeOut 0.3s ease-out';
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modalContent.style.animation = 'modalFadeIn 0.3s ease-out';
+            }, 300);
+        }, 5000);
+    }
+
+    // Agregar formato a los campos de tarjeta mientras se escriben
+    if (document.getElementById('card-number')) {
+        document.getElementById('card-number').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 16);
+        });
+
+        document.getElementById('card-expiry-month').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 2);
+            if (this.value.length === 1 && this.value > 1) {
+                this.value = '0' + this.value;
+            }
+            if (this.value > 12) {
+                this.value = '12';
             }
         });
 
-        if (!hayErrores) {
-            // Mostrar el popup
-            const successPopup = document.getElementById('success-popup');
-            successPopup.classList.add('show');
-            
-            // Limpiar el formulario
-            form.reset();
-            
-            // Cerrar el popup después de 3 segundos
-            setTimeout(() => {
-                successPopup.classList.remove('show');
-            }, 4000);
-        }
-    });
+        document.getElementById('card-expiry-year').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 2);
+        });
 
-    // Cerrar el popup al hacer clic fuera de él
-    document.getElementById('success-popup').addEventListener('click', function(e) {
-        if (e.target === this) {
-            this.classList.remove('show');
-        }
-    });
+        document.getElementById('card-cvv').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 3);
+        });
+    }
+
+    // Agregar el event listener para el envío del formulario
+    form.addEventListener('submit', handleFormSubmit);
 });
