@@ -23,7 +23,7 @@ html {
 body {
   /* Estilos para el cuerpo de la página, incluyendo el fondo */
   font-family: var(--primary-font) !important;
-  background-image: url("./assets/dogs_and_cats/Family.jpg");
+  background-image: url("./assets/dogs_and_cats/Family1.webp");
   background-size: cover; /* Asegura que cubra toda la pantalla sin deformarse */
   background-position: center center; /* Centra la imagen */
   background-repeat: no-repeat;

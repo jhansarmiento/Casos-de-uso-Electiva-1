@@ -6,82 +6,11 @@
   z-index: 1;
 }
 
-.search-container {
-  /* Contenedor de la barra de búsqueda */
-  width: 60%;
-  margin: 0 auto 4rem auto;
-  display: flex;
-  gap: 1rem;
-  background-color: transparent;
-  backdrop-filter: blur(30px);
-  background-image: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(30, 64, 35, 0.2)
-  );
-  padding: 1rem;
-  border-radius: 0.8rem;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.search-input {
-  /* Input de la barra de búsqueda */
-  padding: 1rem;
-  border: none;
-  background-color: rgba(30, 64, 35, 0.5);
-  backdrop-filter: blur(20px);
-  color: white;
-  border-radius: 0.5rem;
-  margin-right: 1rem;
-  flex: 1;
-}
-
-.search-select {
-  /* Select de la barra de búsqueda */
-  padding: 1rem;
-  border: none;
-  border-radius: 5px;
-  margin-right: 1rem;
-  flex: 0.3;
-  background-color: rgba(30, 64, 35, 0.5);
-  backdrop-filter: blur(20px);
-  color: white;
-}
-
-.search-button {
-  /* Botón lupa de la barra de búsqueda */
-  padding: 1rem;
-  border: none;
-  background-color: transparent;
-  backdrop-filter: blur(30px);
-  background-image: linear-gradient(
-    120deg,
-    rgba(217, 216, 216, 0.2),
-    rgba(30, 64, 35, 0.5)
-  );
-  color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.search-button:hover {
-  /* Efecto de hover para el botón lupa */
-  background-color: rgba(30, 64, 35, 0.558);
-}
-
-.search-input::placeholder,
-.search-select::placeholder {
-  /* Placeholder de la barra de búsqueda */
-  color: white;
-  opacity: 1;
-}
-
 .hero-content {
   /* Contenedor principal del contenido de la primera seccion*/
   width: 100%;
   height: 65vh;
-  background-image: url("./assets/dogs_and_cats/chewy-gWzTum_yMCg-unsplash.jpg");
+  background-image: url("./assets/dogs_and_cats/Family2.webp");
   background-size: cover; /* Asegura que cubra toda la pantalla sin deformarse */
   background-position: center center; /* Centra la imagen */
   background-repeat: no-repeat;
@@ -153,8 +82,8 @@
   display: flex;
   flex-direction: row;
   width: 40%;
-  top: 73%;
-  right: 8%;
+  top: 65%;
+  right: 9.5%;
 }
 
 .hero-stat {
@@ -181,13 +110,6 @@
 }
 
 @media (max-width: 576px) {
-  /* Estilos desde 0px hasta 576px*/
-  .search-container {
-    /* Contenedor de la barra de búsqueda */
-    width: 100%;
-    margin: 0 auto 2rem auto;
-  }
-
   .hero-layer {
     /* Capa de transparencia lateral no visible en pantallas menores a 576px*/
     display: none;
@@ -228,7 +150,7 @@
   .hero-description {
     /* Cambia la posición de la descripción para pantallas menores a 576px*/
     position: absolute;
-    top: 58%;
+    top: 50%;
     left: 5%;
     width: 70%;
     height: auto;
@@ -248,7 +170,7 @@
   .hero-stats {
     /* Cambia la posición de las estadísticas para pantallas menores a 576px*/
     position: absolute;
-    top: 78%;
+    top: 70%;
     left: 17%;
     width: 65%;
     height: auto;
@@ -287,12 +209,6 @@
   .hero {
     /* Cambia el margen inferior para pantallas entre 576px y 1000px*/
     margin-bottom: 10rem;
-  }
-
-  .search-container {
-    /* Cambia el ancho de la barra de búsqueda para pantallas entre 576px y 1000px*/
-    width: 80%;
-    margin: 0 auto 2rem auto;
   }
 
   .hero-content {
@@ -339,7 +255,7 @@
   .hero-description {
     /* Cambia el estilo de la descripción para pantallas entre 576px y 1000px*/
     position: absolute;
-    top: 55%;
+    top: 46%;
     left: 15%;
     width: 60%;
     height: auto;
@@ -358,7 +274,7 @@
   .hero-stats {
     /* Cambia la posición de las estadísticas para pantallas entre 576px y 1000px*/
     position: absolute;
-    top: 80%;
+    top: 72%;
     left: 15%;
     width: 70%;
     height: auto;

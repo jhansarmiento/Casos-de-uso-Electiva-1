@@ -1,239 +1,157 @@
 .gallery {
-    /* Contenedor principal */
-    width: 85%;
-    height: 80%;
-    margin: 4rem auto;
-    z-index: 1;
+    padding: 4rem 2rem;
+    min-height: 100vh;
 }
 
 .gallery-container {
-    /* Contenedor de la galería ajusta el tamaño, aplica transparencia, 
-        ajusta margenes, espaciado y bordes, ademas define la distribución
-        de los elementos */
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    backdrop-filter: blur(30px);
-    background-image: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0.4),
-      rgba(30, 64, 35, 0.4)
-    );
-    background-size: 40px;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    margin: 4rem auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Estilos para los botones de categoría */
 .category-buttons {
-    /* Contenedor de los botones de categoría ajusta el tamaño y posicionamiento */
-    width: 30%;
-    height: auto;
     display: flex;
-    gap: 2rem;
-    margin: 0 auto;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 3rem;
 }
 
 .category-button {
-    /* Estilos de los botones de categoría */
-    width: 50%;
-    height: auto;
-    padding: 1rem;
+    padding: 1.5rem 4rem;
     border: none;
     border-radius: 1rem;
-    background-color: rgba(24, 51, 28, 0.4);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
+    background-color: transparent;
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.2),
+            rgba(30, 64, 35, 0.1));
     color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .category-button:hover {
-    /* Cambia el color de fondo al pasar el mouse sobre los botones */
-    background-color: rgba(24, 51, 28, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
+.category-button.active {
+    background-color: transparent;
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.2),
+            rgba(30, 64, 35, 0.1));
+    box-shadow: 0 8px 32px 0 rgba(208, 208, 208, 0.37);
+}
+
+/* Estilos para la galería de imágenes - Ajustado para distribución uniforme */
 .gallery-images {
-    /* Contenedor de las imagenes de la galeria */
-    width: 100%;
-    height: auto;
-    object-fit: cover;
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem;
     justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    perspective: 1000px; /* Mejora la calidad de las transformaciones 3D */
 }
 
 .gallery-item {
-    /* Estilos de los items de la galeria aplica transparencia, espaciado, bordes y transiciones */
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    background-image: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0.3),
-      rgba(30, 64, 35, 0.2)
-    );
-    padding: 2rem;
-    border-radius: 2rem;
-    transition: transform 0.3s ease-in-out;
-    width: 290px;
-    height: 450px;
-}
-
-.gallery-item img {
-    /* Estilos de las imagenes de la galeria, ajusta el tamaño, espaciado y bordes */
-    width: 250px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 2rem;
-    padding: 1rem;
+    position: relative;
+    flex: 0 0 calc(33.333% - 1.34rem);
+    max-width: calc(33.333% - 1.34rem);
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    will-change: transform;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .gallery-item:hover {
-    /* Cambia el tamaño al pasar el mouse sobre los items */
-    transform: scale(1.1);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease;
+    backface-visibility: hidden;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.02); /* Sutil zoom en la imagen al hacer hover */
 }
 
 .pet-description {
-    /* Contenedor de la descripcion de la mascota */
-    margin: 0 auto;
-    line-height: 1rem;
-}
-
-.pet-description p{
-    /* Estilos de la descripcion de la mascota */
+    padding: 1.5rem;
     color: white;
-    margin-left: 2rem;
-    font-size: 1.8rem;
-    margin: 0 auto;
-    padding: 1rem;
+    transform: translateZ(0); /* Activa la aceleración por hardware para el zoom */
 }
 
-.pet-description span {
-    /* Estilos de la descripcion de la mascota, hace que el texto sea en negrita */
-    font-weight: bold;
-    font-size: 1.9rem;
+.pet-description p span {
+    font-weight: 400;
+    opacity: 0.8;
 }
 
-@media (max-width: 576px) {
-    /* Estilos desde 0px hasta 576px*/
-    .gallery-container {
-        /* Cambia el estilo de la transparencia para pantallas entre 0px y 576px*/
-        background-size: 15px;
-        gap: 2rem;
-        margin: 2rem auto;
+.pet-description p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.pet-description .name {
+    font-size: 2.6rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .gallery-item {
+        flex: 0 0 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        padding: 2rem 1rem;
     }
 
     .category-buttons {
-        /* Cambia el ancho del contenedor de los botones de categoría para pantallas menores a 576px*/
-        width: 70%;
-    }
-    
-    .category-button {
-        /* Cambia el ancho de los botones de categoría para pantallas menores a 576px*/
-        width: 70%;
-        font-size: 1.8rem;
+        flex-direction: row;
+        gap: 0.5rem;
     }
 
-    .gallery-images {
-        /* Cambia el espaciado entre las imagenes de la galeria para pantallas menores a 576px*/
-        gap: 0.8rem;
+    .category-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
     }
-    
+
     .gallery-item {
-        /* Cambia el ancho del contenedor de los items de la galeria para pantallas menores a 576px*/
-        width: 130px;
-        height: 220px;
-        padding: 1rem;
-        border-radius: 1.5rem;
-    }
-    
-    .gallery-item img {
-        /* Cambia el tamaño de las imagenes de la galeria para pantallas menores a 576px*/
-        width: 110px;
-        height: 140px;
-        padding: 0.5rem;
-        border-radius: 1rem;
-    }
-    
-    .gallery-item:hover {
-        /* Cambia el tamaño al pasar el mouse sobre los items de la galeria para pantallas menores a 576px*/
-        transform: scale(1.05);
-    }
-    
-    .pet-description p{
-        /* Cambia el estilo de la descripcion de la mascota para pantallas menores a 576px*/
-        font-size: 0.7rem;
-        margin: 0 auto;
-        line-height: 0rem;
-    }
-    
-    .pet-description span {
-        /* Cambia el estilo de la descripcion de la mascota para pantallas menores a 576px, hace que el texto sea en negrita */
-        font-weight: bold;
-        font-size: 0.8rem;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
 
-@media (min-width: 576px) and (max-width: 1000px) {
-    /* Estilos desde 576px hasta 1000px*/
-    .gallery-container {
-        /* Cambia el estilo de la transparencia para pantallas entre 576px y 1000px*/
-        background-size: 20px;
-    }
-
-    .category-buttons {
-        /* Cambia el ancho del contenedor de los botones de categoría para pantallas entre 576px y 1000px*/
-        width: 55%;
-    }
-    
-    .category-button {
-        /* Cambia el ancho de los botones de categoría para pantallas entre 576px y 1000px*/
-        width: 50%;
-    }
-
-    .gallery-images {
-        /* Cambia el espaciado entre las imagenes de la galeria para pantallas entre 576px y 1000px*/
-        gap: 2rem;
-    }
-    
+/* Para pantallas muy pequeñas */
+@media (max-width: 350px) {
     .gallery-item {
-        /* Cambia el ancho del contenedor de los items de la galeria para pantallas entre 576px y 1000px*/
-        width: 235px;
-        height: 380px;
-        padding: 1.5rem;
-    }
-    
-    .gallery-item img {
-        /* Cambia el tamaño de las imagenes de la galeria para pantallas entre 576px y 1000px*/
-        width: 205px;
-        height: 260px;
-    }
-    
-    .gallery-item:hover {
-        /* Cambia el tamaño al pasar el mouse sobre los items de la galeria para pantallas entre 576px y 1000px*/
-        transform: scale(1.05);
-    }
-    
-    .pet-description p{
-        /* Cambia el estilo de la descripcion de la mascota para pantallas entre 576px y 1000px*/
-        font-size: 1.4rem;
-        margin: 0 auto;
-        line-height: 0.8rem;
-    }
-    
-    .pet-description span {
-        /* Cambia el estilo de la descripcion de la mascota para pantallas entre 576px y 1000px, hace que el texto sea en negrita */
-        font-weight: bold;
-        font-size: 1.5rem;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }

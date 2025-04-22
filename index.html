@@ -19,10 +19,9 @@
     <link rel="stylesheet" href="./styles.css"> <!-- Estilos generales -->
     <link rel="stylesheet" href="./navbar.css"> <!-- Estilos del navbar -->
     <link rel="stylesheet" href="./hero.css"> <!-- Estilos del hero -->
-    <link rel="stylesheet" href="./gallery.css"> <!-- Estilos de la galería -->
-    <link rel="stylesheet" href="./footer.css"> <!--Estilos del footer-->
-    <link rel="stylesheet" href="./forms.css"> <!--Estilos-->
-    <link rel="stylesheet" href="carrusel.css"> <!--carrucel-->
+    <link rel="stylesheet" href="./Gallery.css"> <!-- Estilos de la galería -->
+    <link rel="stylesheet" href="./GalleryModal.css"> <!-- Estilos del modal de la galería -->
+    <link rel="stylesheet" href="./Form.css"> <!-- Estilos del formulario -->
 </head>
 
 <body>
@@ -67,26 +66,6 @@
 
         <section id="hero" class="hero">
 
-            <!-- Barra de busqueda -->
-            <div class="search-container"> 
-
-                <input type="text" class="search-input" placeholder="Ingrese su ciudad">
-
-                <select class="search-select">
-                    <option value="perros">Perros</option>
-                    <option value="gatos">Gatos</option>
-                </select>
-
-                <!-- Boton de busqueda con svg de lupa-->
-                <button class="search-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" width="20" height="20" stroke-width="1">
-                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-                        <path d="M21 21l-6 -6"></path>
-                    </svg>
-                </button>
-            </div>
-
             <!-- Contenido de la primera sección -->
             <div class="hero-content">
 
@@ -130,269 +109,156 @@
         </section>
 
         <section id="gallery" class="gallery">
-            <!-- Contenido de la segunda sección -->
             <div class="gallery-container">
-
                 <!-- Botones para filtrar por categoria -->
                 <div class="category-buttons">
-                    <button class="category-button">Gatos</button>
-                    <button class="category-button">Perros</button>
+                    <button class="category-button active" data-tipo="perro">Perros</button>
+                    <button class="category-button" data-tipo="gato">Gatos</button>
                 </div>
 
                 <!-- Galeria de imagenes -->
-                <div class="gallery-images">
-                    <!-- cada item de la galeria tiene su contenedor -->
-                    <div class="gallery-item dog">
-                        <div class="pet-description">
-                            <img src="./assets/dogs/alvan-nee-brFsZ7qszSY-unsplash.jpg" class="" alt="Perro 1">
-                            <p class="name"> <span>Nombre: </span>Max</p>
-                            <p class="age"><span>Edad: </span>10 meses</p>
-                            <p class="personality"><span>Personalidad: </span>Leal</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item dog">
-                        <div class="pet-description">
-                            <img src="./assets/dogs/charlesdeluvio-pOUA8Xay514-unsplash.jpg" class="" alt="Perro 2">
-                            <p class="name"> <span>Nombre: </span>Bella</p>
-                            <p class="age"><span>Edad: </span>2 años</p>
-                            <p class="personality"><span>Personalidad: </span>Tranquila</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item dog">
-                        <div class="pet-description">
-                            <img src="./assets/dogs/daniel-lincoln-IE2Z11zKsso-unsplash.jpg" class="" alt="Perro 3">
-                            <p class="name"> <span>Nombre: </span>Rocky</p>
-                            <p class="age"><span>Edad: </span>3 meses</p>
-                            <p class="personality"><span>Personalidad: </span>Jugueton</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item dog">
-                        <div class="pet-description">
-                            <img src="./assets/dogs/karsten-winegeart-oU6KZTXhuvk-unsplash.jpg" class="" alt="Perro 4">
-                            <p class="name"> <span>Nombre: </span>Lola</p>
-                            <p class="age"><span>Edad: </span>4 años</p>
-                            <p class="personality"><span>Personalidad: </span>Dulce</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item dog">
-                        <div class="pet-description">
-                            <img src="./assets/dogs/peri-stojnic-5Vr_RVPfbMI-unsplash.jpg" class="" alt="Perro 5">
-                            <p class="name"> <span>Nombre: </span>Toby</p>
-                            <p class="age"><span>Edad: </span>6 años</p>
-                            <p class="personality"><span>Personalidad: </span>Divertido</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item dog">
-                        <div class="pet-description">
-                            <img src="./assets/dogs/victor-g-2pbnDRhXc6Q-unsplash.jpg" class="" alt="Perro 6">
-                            <p class="name"> <span>Nombre: </span>Daisy</p>
-                            <p class="age"><span>Edad: </span>1 año</p>
-                            <p class="personality"><span>Personalidad: </span>Tranquila</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cat">
-                        <div class="pet-description">
-                            <img src="./assets/cats/alvan-nee-ZCHj_2lJP00-unsplash.jpg" class="" alt="Gato 1">
-                            <p class="name"> <span>Nombre: </span>Luna</p>
-                            <p class="age"><span>Edad: </span>10 meses</p>
-                            <p class="personality"><span>Personalidad: </span>Curiosa</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cat">
-                        <div class="pet-description">
-                            <img src="./assets/cats/hang-niu-Tn8DLxwuDMA-unsplash.jpg" class="" alt="Gato 2">
-                            <p class="name"> <span>Nombre: </span>Simba</p>
-                            <p class="age"><span>Edad: </span>1 año</p>
-                            <p class="personality"><span>Personalidad: </span>Curiosa</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cat">
-                        <div class="pet-description">
-                            <img src="./assets/cats/jack-dong-yJozLVBxNA0-unsplash.jpg" class="" alt="Gato 3">
-                            <p class="name"> <span>Nombre: </span>Thor</p>
-                            <p class="age"><span>Edad: </span>2 años</p>
-                            <p class="personality"><span>Personalidad: </span>Dominante</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cat">
-                        <div class="pet-description">
-                            <img src="./assets/cats/jae-park-7GX5aICb5i4-unsplash.jpg" class="" alt="Gato 4">
-                            <p class="name"> <span>Nombre: </span>Bowser</p>
-                            <p class="age"><span>Edad: </span>1 años</p>
-                            <p class="personality"><span>Personalidad: </span>Divertido</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cat">
-                        <div class="pet-description">
-                            <img src="./assets/cats/stefzn-5IKfw-BKapo-unsplash.jpg" class="" alt="Gato 5">
-                            <p class="name"> <span>Nombre: </span>Nala</p>
-                            <p class="age"><span>Edad: </span>3 años</p>
-                            <p class="personality"><span>Personalidad: </span>Cariñosa</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item cat">
-                        <div class="pet-description">
-                            <img src="./assets/cats/the3dragons-slvc2JXOmHk-unsplash.jpg" class="" alt="Gato 6">
-                            <p class="name"> <span>Nombre: </span>Paco</p>
-                            <p class="age"><span>Edad: </span>1 año</p>
-                            <p class="personality"><span>Personalidad: </span>Travieso</p>
-                        </div>
-                    </div>
+                <div class="gallery-images" id="gallery-container">
+                    <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
                 </div>
-
             </div>
         </section>
-
-        <section id="cares" class="cares"></section>
-        <section id="contact" class="contact"></section>
-
-
-        <!-- Carrusel -->
-
-        <div class="carousel-container">
-            <div id="carruselMascotas" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="assets/carrucel/Agregar un título.png" class="d-block w-100" alt="Mascota 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/carrucel/Copia de Agregar un título (5).png" class="d-block w-100" alt="Mascota 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/carrucel/Copia de Agregar un título.png" class="d-block w-100" alt="Mascota 3">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="assets/carrucel/Copia de Agregar un título (2).png" class="d-block w-100" alt="Mascota 3">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carruselMascotas" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carruselMascotas" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
-                </button>
-            </div>
-        </div>
         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <!-- Mapa -->
-                <div class="map-container">
-                    <h2 class="map-title">📍 Aquí Estamos 🗺️</h2>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093643!2d144.95373531590447!3d-37.81627974201237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce6e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1638291168910!5m2!1sen!2sus"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Ventana modal de la galería -->
+        <div id="pet-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-pet-info">
+                    <div class="modal-image-container">
+                        <img src="" alt="" id="modal-pet-image">
+                    </div>
+                    <div class="modal-pet-details">
+                        <h2 id="modal-pet-name"></h2>
+                        <div class="pet-info-container">
+                            <p><span>Edad:</span> <span id="modal-pet-age"> </span></p>
+                            <p><span>Tamaño:</span> <span id="modal-pet-size"> </span></p>
+                            <p><span>Personalidad:</span> <span id="modal-pet-personality"> </span></p>
+                            <p><span>Nivel de Energía:</span> <span id="modal-pet-energy"> </span></p>
+                        </div>
+                        <button id="adopt-button" class="adopt-button">Adoptar a <span id="pet-name-button"></span></button>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Formulario -->
-                <div class="form-container">
-                    <h2>Inicia tu proceso de adopción</h2>
-                    <form id="adoptionForm">
-                        <div class="input-group">
-                            <label for="name">Nombre</label>
-                            <input type="text" id="name" name="name" required>
+        <section id="form" class="form-section">
+            <div class="form-container">
+                <div class="form-image">
+                    <img src="./assets/dogs_and_cats/Family3.webp" alt="Familia con mascotas">
+                </div>
+                <div class="form-content">
+                    <h2>Formulario de Adopción</h2>
+                    <p class="form-description">Por favor, completa el siguiente formulario para iniciar el proceso de adopción.</p>
+                    
+                    <form id="adoption-form" class="adoption-form" novalidate>
+                        <!-- Información Personal -->
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                            <span class="error-message"></span>
                         </div>
 
-                        <div class="input-group">
-                            <label for="email">Email</label>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
                             <input type="email" id="email" name="email" required>
+                            <span class="error-message"></span>
                         </div>
 
-                        <div class="input-group">
-                            <label for="phone">Celular</label>
-                            <input type="tel" id="phone" name="phone" required>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                            <span class="error-message"></span>
                         </div>
-                        <!-- Tipo de proceso -->
-                        <div class="input-group">
-                            <label for="processType">Tipo de Proceso</label>
-                            <select id="processType" name="processType" required>
-                                <option value="Formulario">adopción</option>
-                                <option value="Entrevista">Apadrinamiento</option>
-                                <option value="Visita">Visita</option>
+
+                        <div class="form-group">
+                            <label for="direccion">Dirección *</label>
+                            <input id="direccion" name="direccion" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <!-- Selección de Mascota -->
+                        <div class="form-group">
+                            <label for="tipo-mascota">Tipo de Mascota *</label>
+                            <select id="tipo-mascota" name="tipo-mascota" required>
+                                <option value="">Selecciona un tipo</option>
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
                             </select>
+                            <span class="error-message"></span>
                         </div>
-                        <!-- Boton de envio -->
-                        <button type="submit" class="submit-button">Enviar</button>
+
+                        <div class="form-group">
+                            <label for="mascota">Mascota que deseas adoptar *</label>
+                            <select id="mascota" name="mascota" required disabled>
+                                <option value="">Primero selecciona un tipo de mascota</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <!-- Preguntas de Evaluación -->
+                        <div class="form-group">
+                            <label for="experiencia">¿Tienes experiencia con mascotas? *</label>
+                            <select id="experiencia" name="experiencia" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="presupuesto">¿Cuentas con el presupuesto necesario para mantener una mascota? *</label>
+                            <select id="presupuesto" name="presupuesto" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tiempo">¿Tienes disponibilidad de tiempo para cuidar una mascota? *</label>
+                            <select id="tiempo" name="tiempo" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="espacio">¿Cuentas con el espacio adecuado para una mascota? *</label>
+                            <select id="espacio" name="espacio" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <button type="submit" class="submit-button">Enviar Solicitud</button>
                     </form>
+
+                    <!-- Popup de éxito al enviar el formulario -->
+                    <div id="success-popup" class="success-popup">
+                        <div class="success-content">
+                            <div class="success-icon">✓</div>
+                            <h3>¡Solicitud Enviada!</h3>
+                            <p>Tu solicitud de adopción ha sido recibida correctamente.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-                <!-- Modal -->
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <img id="modalImage" src="" alt="Imagen de donación" style="width:100%;">
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <!-- Columna de Autores -->
-            <div class="footer-column">
-                <h3>Autores</h3>
-                <p>Sebastian Mayorga Ochoa</p>
-                <p>Angel Eduardo Avendaño</p>
-                <p>Jhan Carlos Sarmiento Nieto</p>
-            </div>
-
-            <!-- Columna de Donaciones -->
-            <div class="footer-column">
-                <h3>Donaciones</h3>
-                <p>¡Apoya nuestro trabajo!</p>
-                <button type="button" class="btn btn-nequi" onclick="openModal('nequi')">Nequi</button>
-                <button type="button" class="btn btn-paypal" onclick="openModal('paypal')">PayPal</button>
-                <button type="button" class="btn btn-bancolombia" onclick="openModal('bancolombia')">Bancolombia</button>
-
-                <!-- Derechos de autor -->
-
-                <div class="copyright">
-                    <p>&copy; 2025 Adopta Un Peludito. Todos los derechos reservados.</p>
-                </div>
-
-            </div>
-
-
-
-            <!-- Columna de Redes Sociales -->
-            <div class="footer-column">
-                <h3>Redes Sociales</h3>
-                <div class="social-icons">
-                    <a href="https://twitter.com" target="_blank" class="social-link">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png"
-                            alt="X" width="30">
-                    </a>
-                    <a href="https://facebook.com" target="_blank" class="social-link">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/640px-Facebook_f_logo_%282019%29.svg.png"
-                            alt="Facebook" width="30">
-                    </a>
-                    <a href="https://instagram.com" target="_blank" class="social-link">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                            alt="Instagram" width="30">
-                    </a>
-                </div>
-            </div>
-        </footer>
-
+        <script type="module" src="./Gallery.js"></script>
+        <script src="./HamburgerMenu.js"></script>
+        <script src="./Form.js"></script>
     </div>
-
-    <!-- Bootstrap JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
 </body>
 
 </html>
