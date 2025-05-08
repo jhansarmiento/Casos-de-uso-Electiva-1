@@ -169,3 +169,26 @@
         max-width: 100%;
     }
 }
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+  .filters select {
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #filtro-tipo {
+    z-index: 2 !important;
+  }
