@@ -9,6 +9,35 @@ document.addEventListener("DOMContentLoaded", function () {
   let animalesDataCache = null;
   let valorMascotaSeleccionada = 0;
 
+  function actualizarMetodoPago() {
+    const metodoSeleccionado = document.querySelector(
+      'input[name="metodo-pago"]:checked'
+    )?.value;
+    const tarjetaGroup = document
+      .getElementById("card-number")
+      .closest(".form-group");
+    const detallesGroup = document.querySelector(".card-details");
+    const paypalGroup = document.querySelector(".paypal-email");
+
+    if (metodoSeleccionado === "paypal") {
+      tarjetaGroup.style.display = "none";
+      detallesGroup.style.display = "none";
+      paypalGroup.style.display = "block";
+    } else {
+      tarjetaGroup.style.display = "block";
+      detallesGroup.style.display = "flex";
+      paypalGroup.style.display = "none";
+    }
+
+    const submitButton = document.getElementById("submit-button");
+    if (submitButton) {
+      submitButton.textContent =
+        metodoSeleccionado === "paypal"
+          ? "Donar con PayPal"
+          : "Pagar con tarjeta";
+    }
+  }
+
   // Objeto con las funciones de validación
   const validaciones = {
     nombre: (value) => {
@@ -88,6 +117,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!/^\d{3}$/.test(value)) return "El CVV debe tener 3 dígitos";
       return "";
     },
+    "paypal-email": (value) => {
+      if (!value.trim()) return "El correo de PayPal es requerido";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Correo inválido";
+      return "";
+    },
   };
 
   // Función para mostrar errores
@@ -148,6 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       adoptionFields.style.display = "none";
       sponsorFields.style.display = "block";
+      actualizarMetodoPago();
     }
 
     // Resetear la imagen al cambiar de tipo de formulario
@@ -190,12 +225,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Esperar que la mascota exista en el <select>
     const existeMascota = () =>
-        [...mascotaSelect.options].some(opt => opt.value === petName);
+      [...mascotaSelect.options].some((opt) => opt.value === petName);
 
     const esperarMascota = async () => {
-        while (!existeMascota()) {
-            await new Promise(r => setTimeout(r, 50));
-        }
+      while (!existeMascota()) {
+        await new Promise((r) => setTimeout(r, 50));
+      }
     };
 
     await esperarMascota();
@@ -410,38 +445,50 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Validaciones específicas para tarjeta de crédito en caso de apadrinamiento
+    // Validaciones específicas según método de pago
     if (currentFormType === "apadrinar") {
-      const cardNumber = document.getElementById("card-number").value;
-      const cardMonth = document.getElementById("card-expiry-month").value;
-      const cardYear = document.getElementById("card-expiry-year").value;
-      const cardCVV = document.getElementById("card-cvv").value;
+      const metodoPago = document.querySelector(
+        'input[name="metodo-pago"]:checked'
+      )?.value;
 
-      // Validar número de tarjeta (16 dígitos)
-      if (!/^\d{16}$/.test(cardNumber)) {
-        alert("El número de tarjeta debe tener 16 dígitos");
+      if (!metodoPago) {
+        alert("Por favor selecciona un método de pago");
         return false;
       }
 
-      // Validar mes (01-12)
-      if (!/^(0[1-9]|1[0-2])$/.test(cardMonth)) {
-        alert("El mes debe estar entre 01 y 12");
-        return false;
+      if (metodoPago === "tarjeta") {
+        const cardNumber = document.getElementById("card-number").value;
+        const cardMonth = document.getElementById("card-expiry-month").value;
+        const cardYear = document.getElementById("card-expiry-year").value;
+        const cardCVV = document.getElementById("card-cvv").value;
+
+        if (!/^\d{16}$/.test(cardNumber)) {
+          alert("El número de tarjeta debe tener 16 dígitos");
+          return false;
+        }
+
+        if (!/^(0[1-9]|1[0-2])$/.test(cardMonth)) {
+          alert("El mes debe estar entre 01 y 12");
+          return false;
+        }
+
+        if (!/^\d{2}$/.test(cardYear)) {
+          alert("El año debe tener 2 dígitos");
+          return false;
+        }
+
+        if (!/^\d{3}$/.test(cardCVV)) {
+          alert("El CVV debe tener 3 dígitos");
+          return false;
+        }
+      } else if (metodoPago === "paypal") {
+        const paypalEmail = document.getElementById("paypal-email").value;
+        if (!paypalEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(paypalEmail)) {
+          alert("Por favor ingresa un correo válido para PayPal");
+          return false;
+        }
       }
 
-      // Validar año (2 dígitos)
-      if (!/^\d{2}$/.test(cardYear)) {
-        alert("El año debe tener 2 dígitos");
-        return false;
-      }
-
-      // Validar CVV (3 dígitos)
-      if (!/^\d{3}$/.test(cardCVV)) {
-        alert("El CVV debe tener 3 dígitos");
-        return false;
-      }
-
-      // Validar tipo de apadrinamiento
       if (
         !document.querySelector('input[name="tipo-apadrinamiento"]:checked')
       ) {
@@ -478,7 +525,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       console.log("Datos del formulario:", formData);
       showSuccessModal();
-      form.reset();
       formImage.src = defaultImage;
       document.getElementById("mascota").disabled = true;
       document.querySelector(".monto-total span").textContent = "$0";
@@ -488,19 +534,37 @@ document.addEventListener("DOMContentLoaded", function () {
   // Función para mostrar el modal de éxito
   function showSuccessModal() {
     const modal = document.querySelector(".success-modal");
+    const modalContent = modal?.querySelector(".success-modal-content");
+
+    if (!modal || !modalContent) {
+      console.warn("No se encontró el modal de éxito");
+      return;
+    }
+
     modal.style.display = "flex";
+    modalContent.style.animation = "modalFadeIn 0.3s ease-out";
 
     // Esperar 5 segundos y luego ocultar el modal con animación
     setTimeout(() => {
-      const modalContent = modal.querySelector(".success-modal-content");
       modalContent.style.animation = "modalFadeOut 0.3s ease-out";
 
       setTimeout(() => {
         modal.style.display = "none";
         modalContent.style.animation = "modalFadeIn 0.3s ease-out";
+
+        // Limpiar el formulario después de cerrar el modal
+        form.reset();
+        formImage.src = defaultImage;
+        document.getElementById("mascota").disabled = true;
+        document.querySelector(".monto-total span").textContent = "$0";
+
+        // Ocultar campos según método de pago actual
+        actualizarMetodoPago();
       }, 300);
     }, 5000);
   }
+
+  console.log("Formulario válido, mostrando modal de éxito...");
 
   // Agregar formato a los campos de tarjeta mientras se escriben
   if (document.getElementById("card-number")) {
@@ -535,4 +599,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Agregar el event listener para el envío del formulario
   form.addEventListener("submit", handleFormSubmit);
+
+  document.querySelectorAll('input[name="metodo-pago"]').forEach((radio) => {
+    radio.addEventListener("change", actualizarMetodoPago);
+  });
 });

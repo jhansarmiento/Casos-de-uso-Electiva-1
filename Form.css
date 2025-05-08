@@ -368,7 +368,7 @@
 
 .card-details {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .card-expiry, .card-cvv {
@@ -397,7 +397,9 @@ input[name="card-cvv"],
 .expiry-inputs input {
     font-family: monospace;
     letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
 }
+
 
 .success-modal {
     display: none;

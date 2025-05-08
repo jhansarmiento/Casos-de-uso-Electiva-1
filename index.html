@@ -14,6 +14,8 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./styles.css"> <!-- Estilos generales -->
@@ -57,10 +59,8 @@
             <!-- Menú de escritorio -->
             <ul class="menu-desktop d-none d-md-block">
                 <!-- Margenes con media queries usando bootstrap -->
-                <li class="me-1 me-lg-2"><a href="#hero">Buscar</a></li>
-                <li class="me-1 me-lg-2 me-xl-5"><a href="#gallery">En adopción</a></li>
-                <li class="me-1 me-lg-2 me-xl-5"><a href="#cares">Cuidados</a></li>
-                <li class="me-1 me-xl-5"><a href="#contact">Adopta</a></li>
+                <li class="me-1 me-lg-2"><a href="#gallery">Buscar</a></li>
+                <li class="me-1 me-xl-5"><a href="#form">Adopta</a></li>
             </ul>
 
         </nav>
@@ -307,14 +307,32 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="card-number">Número de Tarjeta *</label>
+                                <label>Método de Pago *</label>
+                                <div class="radio-option">
+                                    <input type="radio" id="pago-tarjeta" name="metodo-pago" value="tarjeta" checked>
+                                    <label for="pago-tarjeta">Tarjeta de Crédito</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="pago-paypal" name="metodo-pago" value="paypal">
+                                    <label for="pago-paypal">PayPal</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group paypal-email" style="display: none;">
+                                <label for="paypal-email">Correo de PayPal *</label>
+                                <input type="email" id="paypal-email" name="paypal-email">
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="card-number">Número de Tarjeta: *</label>
                                 <input type="text" id="card-number" name="card-number" maxlength="16" required>
                                 <span class="error-message"></span>
                             </div>
 
                             <div class="form-group card-details">
                                 <div class="card-expiry">
-                                    <label for="card-expiry">Fecha de Expiración *</label>
+                                    <label for="card-expiry">Fecha de Expiración: *</label>
                                     <div class="expiry-inputs">
                                         <input type="text" id="card-expiry-month" name="card-expiry-month"
                                             placeholder="MM" maxlength="2" required>
@@ -326,14 +344,14 @@
                                 </div>
 
                                 <div class="card-cvv">
-                                    <label for="card-cvv">CVV *</label>
+                                    <label for="card-cvv">CVV: *</label>
                                     <input type="text" id="card-cvv" name="card-cvv" maxlength="3" required>
                                     <span class="error-message"></span>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="submit-button">Enviar Solicitud</button>
+                        <button type="submit" class="submit-button" id="submit-button">Enviar Solicitud</button>
                     </form>
 
                     <!-- Popup de éxito al enviar el formulario -->
@@ -377,20 +395,30 @@
                 <div class="footer-section adopciones">
                     <h2>Adopciones</h2>
                     <ul>
-                        <li><a href="#">Perros en adopción</a></li>
-                        <li><a href="#">Gatos en adopción</a></li>
-                        <li><a href="#">Cómo adoptar</a></li>
+                        <li><a href="#gallery">Mascotas en adopción</a></li>
+                        <li><a href="#form">Adoptar</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section social">
                     <h2>Redes Sociales</h2>
                     <div class="social-icons">
-                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/" class="facebook" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/" class="twitter" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="instagram" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/" class="linkedin" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" class="youtube" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,12 @@
 .footer {
-  background-color: rgba(242, 242, 242, 0.8); /* Fondo semitransparente */
-  background-image: url('./assets/icons/huellas-footer.webp');
+  background-color: rgba(68, 68, 68, 0.8); /* Fondo semitransparente */
   background-repeat: repeat;
   background-size: contain;
   background-position: center;
   padding: 50px 20px 20px;
   font-family: 'Poppins', sans-serif;
-  color: #333;
+  color: #d2d2d2;
+  width: 100vw;
 }
 
 .footer-content {
@@ -23,7 +23,7 @@
 
 .footer-section h2 {
   font-size: 28px;
-  color: #000;
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
@@ -37,14 +37,14 @@
 }
 
 .footer-section ul li a {
-  color: #003366;
+  color: #d1d1d1;
   text-decoration: none;
   font-size: 20px;
   transition: color 0.3s;
 }
 
 .footer-section ul li a:hover {
-  color: #ff6600;
+  color: rgb(181, 115, 91);
 }
 
 /* Redes sociales */
@@ -74,6 +74,19 @@
 .social-icons .linkedin { background-color: #0077b5; }
 .social-icons .youtube { background-color: #ff0000; }
 
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 22px; /* Ícono dentro */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: white;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
 .social-icons a:hover {
   transform: scale(1.1);
 }
@@ -82,11 +95,11 @@
   text-align: center;
   font-size: 18px;
   padding-top: 15px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ffffff;
 }
 
 .footer-bottom a {
-  color: #003366;
+  color: #ffffff;
   text-decoration: none;
 }
 
