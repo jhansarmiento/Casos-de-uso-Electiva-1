@@ -89,10 +89,9 @@
 
 .modal-pet-details p {
     font-size: 1.6rem;
-    margin: 0;
+    margin-bottom: 1rem;
     font-family: 'Rubik', sans-serif;
     display: flex;
-    align-items: center;
 }
 
 .modal-pet-details p span:first-child {

@@ -111,6 +111,14 @@ function showPetModal(pet) {
       }).format(pet.costoMensual)
     : null;
 
+  const valorFormateado = pet.valorMensual
+    ? new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        minimumFractionDigits: 0,
+      }).format(pet.valorMensual)
+    : null;
+
   let infoContent = `<p><span>Edad:</span> <span>${pet.edad}</span></p>`;
 
   if (pet.categoria === "adopcion") {
@@ -131,8 +139,20 @@ function showPetModal(pet) {
       `;
   } else {
     infoContent += `
-        <p><span>Necesidad:</span> <span>${pet.necesidad}</span></p>
-        <button id="adopt-button" class="adopt-button">Apadrinar a ${pet.nombre}</button>
+      <p><span>Necesidad:</span> <span>${pet.necesidad}</span></p>
+      ${
+        pet.impacto
+          ? `<p><span>Impacto:</span> <span>${pet.impacto}</span></p>`
+          : ""
+      }
+      ${
+        valorFormateado
+          ? `<p><span>Valor del apadrinamiento:</span> <span>${valorFormateado}</span></p>`
+          : ""
+      }
+      <button id="adopt-button" class="adopt-button">Apadrinar a ${
+        pet.nombre
+      }</button>
       `;
   }
 

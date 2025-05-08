@@ -10,7 +10,8 @@ const animalesData = [
     personalidad: "Juguetón y amigable",
     nivelEnergia: "Alto",
     requisitos: "Tener espacio para jugar y disponibilidad para paseos diarios",
-    ubicacion: "Bogotá"
+    ubicacion: "Bogotá",
+    costoMensual: 120000,
   },
   {
     imagen: "./assets/dogs/perro2.webp",
@@ -22,7 +23,8 @@ const animalesData = [
     personalidad: "Amigable y cariñoso",
     nivelEnergia: "Bajo",
     requisitos: "Ambiente tranquilo y visitas veterinarias regulares",
-    ubicacion: "Medellín"
+    ubicacion: "Medellín",
+    costoMensual: 100000,
   },
   {
     imagen: "./assets/dogs/perro3.webp",
@@ -34,7 +36,8 @@ const animalesData = [
     personalidad: "Dulce y obediente",
     nivelEnergia: "Moderado",
     requisitos: "Familia con tiempo para entrenarla y cuidarla",
-    ubicacion: "Cali"
+    ubicacion: "Cali",
+    costoMensual: 110000,
   },
   {
     imagen: "./assets/dogs/perro4.webp",
@@ -46,7 +49,8 @@ const animalesData = [
     personalidad: "Tranquilo y cariñoso",
     nivelEnergia: "Bajo",
     requisitos: "Preferiblemente compañía constante en casa",
-    ubicacion: "Barranquilla"
+    ubicacion: "Barranquilla",
+    costoMensual: 95000,
   },
   {
     imagen: "./assets/dogs/perro5.webp",
@@ -58,7 +62,8 @@ const animalesData = [
     personalidad: "Protectora y leal",
     nivelEnergia: "Moderado",
     requisitos: "Espacio amplio y dueño con experiencia",
-    ubicacion: "Bucaramanga"
+    ubicacion: "Bucaramanga",
+    costoMensual: 130000,
   },
   {
     imagen: "./assets/dogs/perro6.webp",
@@ -70,7 +75,8 @@ const animalesData = [
     personalidad: "Activo y juguetón",
     nivelEnergia: "Muy alto",
     requisitos: "Rutina diaria de ejercicio y socialización",
-    ubicacion: "Pereira"
+    ubicacion: "Pereira",
+    costoMensual: 135000,
   },
 
   // Mascotas para adopción - Gatos
@@ -84,7 +90,8 @@ const animalesData = [
     personalidad: "Energética y juguetona",
     nivelEnergia: "Muy alto",
     requisitos: "Ambiente enriquecido y tiempo de juego diario",
-    ubicacion: "Manizales"
+    ubicacion: "Manizales",
+    costoMensual: 90000,
   },
   {
     imagen: "./assets/cats/gato2.webp",
@@ -96,7 +103,8 @@ const animalesData = [
     personalidad: "Curioso y juguetón",
     nivelEnergia: "Muy alto",
     requisitos: "Hogar seguro sin acceso al exterior",
-    ubicacion: "Armenia"
+    ubicacion: "Armenia",
+    costoMensual: 85000,
   },
   {
     imagen: "./assets/cats/gato3.webp",
@@ -108,7 +116,8 @@ const animalesData = [
     personalidad: "Territorial y protectora",
     nivelEnergia: "Moderado",
     requisitos: "Ser el único gato del hogar",
-    ubicacion: "Ibagué"
+    ubicacion: "Ibagué",
+    costoMensual: 80000,
   },
   {
     imagen: "./assets/cats/gato4.webp",
@@ -120,7 +129,8 @@ const animalesData = [
     personalidad: "Activo y juguetón",
     nivelEnergia: "Muy alto",
     requisitos: "Hogar con juguetes y rascadores",
-    ubicacion: "Cúcuta"
+    ubicacion: "Cúcuta",
+    costoMensual: 88000,
   },
   {
     imagen: "./assets/cats/gato5.webp",
@@ -132,7 +142,8 @@ const animalesData = [
     personalidad: "Tranquila y cariñosa",
     nivelEnergia: "Bajo",
     requisitos: "Ambiente tranquilo, sin niños pequeños",
-    ubicacion: "Villavicencio"
+    ubicacion: "Villavicencio",
+    costoMensual: 82000,
   },
   {
     imagen: "./assets/cats/gato6.webp",
@@ -144,7 +155,8 @@ const animalesData = [
     personalidad: "Curioso y juguetón",
     nivelEnergia: "Alto",
     requisitos: "Ventanas seguras y tiempo de juego diario",
-    ubicacion: "Neiva"
+    ubicacion: "Neiva",
+    costoMensual: 87000,
   },
 
   // Mascotas para apadrinar - Perros
@@ -154,9 +166,10 @@ const animalesData = [
     edad: "5 años",
     tipo: "perro",
     categoria: "apadrinar",
-    necesidad: "Tratamiento mensual para la piel y vitaminas especiales",
+    necesidad: "Necesita un tratamiento constante para su piel delicada y vitaminas que lo ayuden a recuperar su energía y brillo.",
     nivelEnergia: "Alto",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Con tu apoyo, Maximo podrá llevar una vida sin dolor y volver a correr con alegría."
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar2.jpg",
@@ -164,9 +177,10 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "3 años",
-    necesidad: "Alimento especial y medicamentos para las articulaciones",
+    necesidad: "Requiere alimento especializado y medicación para aliviar sus articulaciones y mejorar su movilidad.",
     nivelEnergia: "Moderado",
-    valorMensual: 45000
+    valorMensual: 45000,
+    impacto: "Tu ayuda permitirá que Moon recupere su vitalidad y disfrute sin dolor de cada día."
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar3.jpg",
@@ -174,9 +188,10 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "4 años",
-    necesidad: "Recuperación de cirugía por accidente",
+    necesidad: "Está en proceso de recuperación tras una cirugía por un accidente y necesita cuidados especiales.",
     nivelEnergia: "Bajo",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Gracias a tu apadrinamiento, Coco podrá sanar completamente y volver a confiar en el amor humano."
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar4.jpg",
@@ -184,9 +199,10 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "6 años",
-    necesidad: "Tratamiento para problemas de piel",
+    necesidad: "Lucha con una enfermedad en la piel que necesita tratamiento continuo y cuidados especiales.",
     nivelEnergia: "Muy alto",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Con tu apadrinamiento, Simba tendrá el alivio que necesita para sentirse cómodo y feliz."
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar5.jpg",
@@ -194,9 +210,10 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "9 años",
-    necesidad: "Cuidados especiales por edad avanzada",
+    necesidad: "Por su edad avanzada, necesita una dieta especial y supervisión constante para asegurar su bienestar.",
     nivelEnergia: "Alto",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Tu apadrinamiento le dará a Rex una vejez digna y llena de cariño."
   },
   {
     imagen: "./assets/Apadrinar/dog/DogApadrinar6.jpg",
@@ -204,9 +221,10 @@ const animalesData = [
     tipo: "perro",
     categoria: "apadrinar",
     edad: "3 años",
-    necesidad: "Rehabilitación física por lesión en pata",
+    necesidad: "Se encuentra en rehabilitación por una lesión en su patita y requiere fisioterapia regular.",
     nivelEnergia: "Moderado",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Gracias a ti, Bruno podrá recuperar su movilidad y volver a correr como antes."
   },
 
   // Mascotas para apadrinar - Gatos
@@ -216,9 +234,10 @@ const animalesData = [
     edad: "2 años",
     tipo: "gato",
     categoria: "apadrinar",
-    necesidad: "Dieta especial y suplementos vitamínicos",
+    necesidad: "Requiere una dieta especial y suplementos diarios para fortalecer su sistema inmunológico.",
     nivelEnergia: "Moderado",
-    valorMensual: 40000
+    valorMensual: 40000,
+    impacto: "Con tu apoyo, Millow podrá crecer fuerte y saludable."
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar2.jpg",
@@ -226,9 +245,10 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "2 años",
-    necesidad: "Recuperación de cirugía ocular",
+    necesidad: "Está recuperándose de una cirugía ocular y necesita seguimiento médico constante.",
     nivelEnergia: "Alto",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Tu ayuda será clave para que Felix vuelva a ver el mundo con claridad."
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar3.jpg",
@@ -236,9 +256,10 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "10 años",
-    necesidad: "Cuidados especiales por edad avanzada",
+    necesidad: "Por su edad, requiere controles médicos frecuentes y una dieta que le brinde vitalidad.",
     nivelEnergia: "Bajo",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Tu apadrinamiento asegurará que Aslan tenga una vida tranquila y digna en sus años dorados."
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar4.jpg",
@@ -246,9 +267,10 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "5 años",
-    necesidad: "Tratamiento para problemas respiratorios",
+    necesidad: "Tiene problemas respiratorios crónicos que necesitan tratamiento y un entorno controlado.",
     nivelEnergia: "Muy alto",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Con tu apoyo, Simón podrá respirar mejor y vivir más cómodo."
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar5.jpg",
@@ -256,9 +278,10 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "4 años",
-    necesidad: "Medicación para condición cardíaca",
+    necesidad: "Sufre una condición cardíaca que requiere medicación diaria para mantenerla estable.",
     nivelEnergia: "Alto",
-    valorMensual: 50000
+    valorMensual: 50000,
+    impacto: "Tu apadrinamiento será su esperanza para vivir más tiempo con calidad."
   },
   {
     imagen: "./assets/Apadrinar/cat/CatApadrinar6.jpg",
@@ -266,10 +289,11 @@ const animalesData = [
     tipo: "gato",
     categoria: "apadrinar",
     edad: "6 años",
-    necesidad: "Tratamiento dental especializado",
+    necesidad: "Necesita atención odontológica especializada para comer sin dolor.",
     nivelEnergia: "Moderado",
-    valorMensual: 50000
-  }
+    valorMensual: 50000,
+    impacto: "Con tu ayuda, Oliver podrá alimentarse bien y vivir sin molestias."
+  },
 ];
 
 export default animalesData;
