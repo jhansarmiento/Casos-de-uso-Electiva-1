@@ -1,0 +1,96 @@
+.footer {
+  background-color: rgba(242, 242, 242, 0.8); /* Fondo semitransparente */
+  background-image: url('./assets/icons/huellas-footer.webp');
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 50px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.footer-section h2 {
+  font-size: 28px;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 14px;
+}
+
+.footer-section ul li a {
+  color: #003366;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #ff6600;
+}
+
+/* Redes sociales */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Colores personalizados de cada red */
+.social-icons .facebook { background-color: #3b5998; }
+.social-icons .twitter { background-color: #00acee; }
+.social-icons .instagram { background-color: #e1306c; }
+.social-icons .linkedin { background-color: #0077b5; }
+.social-icons .youtube { background-color: #ff0000; }
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
+}
+
+.footer-bottom a {
+  color: #003366;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #ff6600;
+}
+

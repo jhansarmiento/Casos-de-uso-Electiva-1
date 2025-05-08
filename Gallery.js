@@ -26,12 +26,12 @@ function crearTarjetaMascota(animal) {
 }
 
 // Función para mostrar las mascotas filtradas
-function mostrarMascotas(animalesData, categoria, tipo) {
+function mostrarMascotas(animalesData, categoria) {
   const galleryContainer = document.getElementById('gallery-container');
   if (!galleryContainer) return;
 
   const mascotasFiltradas = animalesData.filter(animal => 
-      animal.categoria === categoria && animal.tipo === tipo
+      animal.categoria === categoria
   );
   
   galleryContainer.innerHTML = mascotasFiltradas.map(crearTarjetaMascota).join('');
